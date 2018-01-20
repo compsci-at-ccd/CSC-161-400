@@ -1,6 +1,6 @@
 ---?image=assets/image/jeremy-bishop.jpg
 
-## Computer Science II
+## CCD: Computer Science II
 
 ### Lecture 1
 
@@ -18,10 +18,15 @@
 
 ## Principles
 
-- If you do not understand, you have the right to demand a "show me".  This means a demonstration either in class or during office hours.
+- If you do not understand, you have the right to demand a **show me**.  This means a demonstration either in class or during office hours.
   + A demonstration means active code, either in class or during office hours.  
   + If the need is best met by posting example code, for some cases I may do that.
-- Homework assignments have three parts:
+- I believe you best learn by doing.  I suggest you bring your laptop or use the lab computer to follow along during lecture.
+  + I will post the starting and ending points on GitHub, within a Lecture branch.  
+---?image=assets/image/john-reign-abarintos.jpg
+  
+## Homework/Projects
+- Assignments (generally) have three parts:
   + Diagram describing the process/workflow
   + Documentation that identifies dependencies, liabilities and important information
   + Source Code
@@ -32,7 +37,7 @@
 
 - The administration of the course will be D2L
   + Submit your homework, quizzes, exam materials, etc. here
-- The code and lecture slides will be here, on [GitHub](https://github.com/compsci-at-ccd/CSC-161-400)
-  + https://github.com/compsci-at-ccd/CSC-161-400 (if you did not click the link)
+- The code and lecture slides will be here, on [GitHub](https://github.com/compsci-at-ccd/csc-161-400)
+  + https://github.com/compsci-at-ccd/csc-161-400 (if you did not click the link)
 - The textbook for the course:
   + *Introduction to Programming with Java: A Problem Solving Approach* by John Dean & Raymond Dean
