@@ -4,9 +4,9 @@
 
 ### Lecture 2
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
 
-## Quiz 1
+## Before we begin, Quiz 1
 
 Java Keywords (pre-test)
 - High: 13 (out of 47)
@@ -15,9 +15,9 @@ Java Keywords (pre-test)
 
 Everyone gets credit.
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
 
-## Quiz 1
+## Quiz 1 - the big question
 
 The most chosen Avenger?
 - Thor, 3
@@ -25,7 +25,7 @@ The most chosen Avenger?
 - Captain America, 1
 - Hawkeye, 1
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
 
 ## Review
 
