@@ -4,7 +4,7 @@
 
 ### Lecture 2
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
 
 ## Review
 
@@ -20,7 +20,7 @@ In the code itself:
 // Write to the console...
 System.out.println(...)
 ```
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
 
 ## Review
 
@@ -30,7 +30,7 @@ It can be important to make sure things do not change!
 final int ZERO = 0;
 ```
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
 
 ## Review
 
