@@ -1,10 +1,10 @@
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-135573.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
 
 ## Computer Science II
 
 ### Lecture 2
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-135573.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
 
 ## Quiz 1
 
@@ -15,7 +15,7 @@ Java Keywords (pre-test)
 
 Everyone gets credit.
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-135573.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
 
 ## Quiz 1
 
@@ -25,7 +25,7 @@ The most chosen Avenger?
 - Captain America, 1
 - Hawkeye, 1
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
 
 ## Review
 
@@ -41,7 +41,7 @@ In the code itself:
 // Write to the console...
 System.out.println(...)
 ```
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
 
 ## Review
 
@@ -51,7 +51,7 @@ It can be important to make sure things do not change!
 final int ZERO = 0;
 ```
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
 
 ## Review
 
@@ -64,13 +64,13 @@ Loop
 - do/while
 - for
  
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
 
 ## Review
 
 ### Classes and Interfaces
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
 
 ## Review
 
@@ -79,7 +79,7 @@ Basic exception handling:
 - assert
 - try/catch/finally
     
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
 
 ## ArrayLists and an Intro to JCF
 
@@ -88,12 +88,12 @@ Starting with Arrays
 - arrays of objects
 - for/each
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
 
 Now to ArrayLists
 - a "managed" array
   
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
 
 ### Java Keywords
 
