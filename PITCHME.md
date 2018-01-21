@@ -43,13 +43,13 @@ Loop
 - do/while
 - for
  
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
 
 ## Review
 
 ### Classes and Interfaces
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
 
 ## Review
 
@@ -58,7 +58,7 @@ Basic exception handling:
 - assert
 - try/catch/finally
     
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
 
 ## ArrayLists and an Intro to JCF
 
@@ -67,12 +67,12 @@ Starting with Arrays
 - arrays of objects
 - for/each
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
 
 Now to ArrayLists
 - a "managed" array
   
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-162557.jpg
 
 ### Java Keywords
 
