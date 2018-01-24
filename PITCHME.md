@@ -1,108 +1,79 @@
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-279914.jpg
 
 ## Computer Science II
 
-### Lecture 2
+### Lecture 3
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-279914.jpg
 
-## Before we begin, Quiz 1
+## Getting connected
 
-Java Keywords (pre-test)
-- High: 13 (out of 47)
-- Low: 5
-- Average: 10
+Today will be our first day working with code in the Git repository
+- Using GitKraken, clone the [Lecture 3 materials](https://github.com/compsci-at-ccd/csc-161-400/tree/Lecture-3), or more specifically the code directory
 
-Everyone gets credit.
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-279914.jpg
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189757.jpg
+## Open and begin
+It will start empty, but we will fill in the blanks.  At the end of class, I will commit our changes.
 
-## Quiz 1 - the big question
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-279914.jpg
 
-The most chosen Avenger?
-- Thor, 3
-- Black Widow, 1
-- Captain America, 1
-- Hawkeye, 1
+## ArrayList and the JCF
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+### Creating an ArrayList
 
-## Review
-
-### Comments in code
-Prologue:
 ```java
-/*********************
-* Key: value pairs
-*********************/
+ArrayList<Person> Personnel = new ArrayList<>();
 ```
-In the code itself:
+@[1](What do the angle braces mean?)
+
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-279914.jpg
+
+## ArrayList and the JCF
+
+### Populating an ArrayList
 ```java
-// Write to the console...
-System.out.println(...)
+Personnel.add(new Person("Dave"));
 ```
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+@[1](How does this anonymous class work?)
 
-## Review
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-279914.jpg
 
-### Constant
-It can be important to make sure things do not change!
+## ArrayList and the JCF
+
+### What about LinkedList and ArrayDeque?
 ```java
-final int ZERO = 0;
+LinkedList<Person> chainMail = new LinkedList<>();
+Queue<Messages> inbox = new ArrayDeque<>();
 ```
+@[1](Shall we check out the LinkedList?  What is different?)
+@[2](What are applications where the add/remove of ArrayDeque are appropriate?)
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-279914.jpg
 
-## Review
+## ArrayList and the JCF
 
-### Loops and Control Structures
-Control
-- if/then/else
-- switch/case
+### Shall we play with any of the others?
 
-Loop
-- do/while
-- for
- 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+- We can "parking lot" suggestions for the end, if we have time, or submit a "show me"
+- page 457 of the Second Ed.
 
-## Review
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-363708.jpg
 
-### Classes and Interfaces
+## Recursion
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+### The most common example, factorial
 
-## Review
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-363708.jpg
 
-### Assertions and Exceptions
-Basic exception handling:
-- assert
-- try/catch/finally
-    
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+## Recursion
 
-## ArrayLists and an Intro to JCF
+### Practical application: binary search
 
-Starting with Arrays
-- arrays of primitives
-- arrays of objects
-- for/each
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-363708.jpg
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+## Recursion
 
-Now to ArrayLists
-- a "managed" array
-  
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-163284.jpg
+### Thoughts on performance and practicality
 
-### Java Keywords
 
-Variables
-- boolean
-- char
-- byte
-- short
-- int
-- long
-- float
-- double

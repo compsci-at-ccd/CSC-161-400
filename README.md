@@ -12,3 +12,6 @@ The presentation for this lecture is in three parts:
 - Quick Review section and code
 - ArrayLists and an Introduction to the Java Collections Framework
 - Java keywords
+
+### Lecture 3
+We will be working with ArrayList again, and recursion.
