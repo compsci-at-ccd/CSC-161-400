@@ -64,6 +64,8 @@ Queue<Messages> inbox = new ArrayDeque<>();
 
 ### The most common example, factorial
 
+Why don't we just code this one up together, knowing that the factorial of a number is just that number multiplied by its predecessors to 1.
+
 ---?code=Binary.java&lang=java
 
 @[18](You start with an ordered array (or list)...)
