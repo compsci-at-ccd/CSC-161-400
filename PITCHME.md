@@ -70,6 +70,48 @@ Queue<Messages> inbox = new ArrayDeque<>();
 
 ### Practical application: binary search
 
+```java
+import java.util.Arrays;
+
+class Binary {
+        public static int search(int array[], int start, int end, int element_to_find) {
+                if ( end >= start ) {
+                        int mid = start + (end - start)/2;
+                        if ( array[mid] == element_to_find )
+                                return mid;
+                        if ( array[mid] > element_to_find )
+                                return search(array, start, mid-1, element_to_find);
+                        return search( array, mid+1, end, element_to_find );
+                }
+
+                return -1;
+        }
+
+        public static void main(String args[]) {
+                final int[] array = new int[] { 1,  2,  3,  5,  8,  13,  21,  34,  55,  89 };
+                final int findme = 21;
+
+                int result = Binary.search(array, 0, array.length-1, findme);
+
+                System.out.print("In array: " + Arrays.toString(array) + " element " + findme);
+                if (result == -1)
+                        System.out.println(" was not present.");
+                else
+                        System.out.println(" was found at index " + result + ". ");
+        }
+}
+```
+@[18](You start with an ordered array (or list)...)
+@[19](...and something to look for.)
+@[21](Call the binary search function.)
+@[4](We will search with the arguments: the array to search, the start (the locus), the end (the radix) and what we are looking for (L))
+@[5](First, we make sure that through the recursive calls we have not have the end pass the beginning...)
+@[6](We calculate the middle...)
+@[7](and see if it matches.  This is actually an optimization.)
+@[10](If the middle is not it, we need to decide if it is the left-hand side of the array...)
+@[11](...or the right.)
+@[14](Or worst case, it was not found at all.)
+
 ---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-363708.jpg
 
 ## Recursion
