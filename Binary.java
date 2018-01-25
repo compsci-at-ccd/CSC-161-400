@@ -16,7 +16,7 @@ class Binary {
 
 	public static void main(String args[]) {
 		final int[] array = new int[] { 1,  2,  3,  5,  8,  13,  21,  34,  55,  89 };
-		final int findme = 21;
+		final int findme = 4;
 		
 		int result = Binary.search(array, 0, array.length-1, findme);
 		

@@ -15,7 +15,7 @@ public class Main {
      */
     public static void main(String[] args) {
 	    // Work with ArrayLists
-        //new demoArrayList();
+        new demoArrayList();
 
         // Work with recursion
         //new demoRecursion();
