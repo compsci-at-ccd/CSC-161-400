@@ -15,3 +15,7 @@ The presentation for this lecture is in three parts:
 
 ### Lecture 3
 We will be working with ArrayList again, and recursion.
+
+### Lecture 4
+We will be working intensively with types and coding mechanisms.
+
