@@ -3,6 +3,11 @@ package edu.ccd;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        //new IntegerAndFloatingPoint();
+        //new CharAndASCII();
+        //new TypeConversions();
+        //new PrefixPostfix();
+        //new EmbeddedAssignments();
+        new ConditionalOperator();
     }
 }
