@@ -8,6 +8,11 @@ public class Main {
         //new TypeConversions();
         //new PrefixPostfix();
         //new EmbeddedAssignments();
-        new ConditionalOperator();
+        //new ConditionalOperator();
+        //new ShortCircuit();
+        //new EmptyStatement();
+        //new BreakAndContinue();
+        //new EnumTypes();
+        //new HexOctalAndBinary();
     }
 }

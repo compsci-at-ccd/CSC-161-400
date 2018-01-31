@@ -6,7 +6,7 @@ public class PrefixPostfix {
         countBackwardsFromTen();
     }
 
-    public void countBackwardsFromTen() {
+    private void countBackwardsFromTen() {
         int predec = 10;
         int postdec = 10;
         System.out.println("Predecrement\tPostdecrement");

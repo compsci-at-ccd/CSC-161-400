@@ -16,7 +16,7 @@ public class TypeConversions {
 
     }
 
-    long automatic_promotion(long x) {
+    private long automatic_promotion(long x) {
         System.out.println("Multiple function definitions can be avoided like this, by using automatic promotion!");
         System.out.println("This method was called with an int, although requiring a long.");
         return x;
