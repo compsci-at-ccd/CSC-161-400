@@ -2,7 +2,7 @@
 
 ## Computer Science II
 
-### Lecture 4
+### Lecture 5
 
 ---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-120534.png
 

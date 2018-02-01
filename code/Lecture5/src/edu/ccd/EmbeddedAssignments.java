@@ -8,7 +8,7 @@ public class EmbeddedAssignments {
 
     private void whyWouldYouDoThis() {
         int a = 5, b = 3;
-        System.out.println("What does this do? " + ( b = a ) );
+        System.out.println("What does this do? " + (b = a));
         System.out.println("But different than..." + (b==a) );
 
     }

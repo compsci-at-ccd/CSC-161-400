@@ -13,6 +13,6 @@ public class Main {
         //new EmptyStatement();
         //new BreakAndContinue();
         //new EnumTypes();
-        //new HexOctalAndBinary();
+        new HexOctalAndBinary();
     }
 }

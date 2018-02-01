@@ -19,3 +19,5 @@ We will be working with ArrayList again, and recursion.
 ### Lecture 4
 We will be working intensively with types and coding mechanisms.
 
+### Lecture 5
+We will be continuing with Chapter 12, hopefully a little better off. (Sorry guys!)
