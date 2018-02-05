@@ -43,34 +43,46 @@ Containers
 - A new idea, a vm as a process...
   - Docker
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-106309.jpg
 ### What do we mean by the Cloud?
 Capacity Provisioning -or- virtualization on someone else's hardware
 - Pay for what you use
 - Highly scalable
 - Almost remove capex for IT infrastructure, and "shift" it to opex
  
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-106309.jpg
 ### What is the Cloud to Computer Science?
 - Separates the solution from the platform
 - Allows us to apply considerable resources to difficult problems
  
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-106309.jpg
 ### How do we engage the Cloud?
 - Platform as a Service
 - Infrastructure as a Service
 - Software as a Service
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-106309.jpg
 ### How do we engage the Cloud?
 - Private Cloud
 - Community Cloud
 - Public Cloud
 - Hybrid Cloud
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-106309.jpg
 ### What about me, now; as a student?
 Easiest "try out" providers
+- Google Cloud Platform
+- Amazon Web Services
+- Microsoft Azure
+
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-14673.jpg
+### In class lab
+- Install VirtualBox
+- Set up a Linux Distro
+
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-14673.jpg
+### For Next Time
+Provision at least one account, work your way down:
 - Google Cloud Platform
 - Amazon Web Services
 - Microsoft Azure
