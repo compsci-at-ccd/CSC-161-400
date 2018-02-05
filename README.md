@@ -21,3 +21,6 @@ We will be working intensively with types and coding mechanisms.
 
 ### Lecture 5
 We will be continuing with Chapter 12, hopefully a little better off. (Sorry guys!)
+
+### Lecture 6
+Today we will be doing a special lecture on virtualization and the Cloud
