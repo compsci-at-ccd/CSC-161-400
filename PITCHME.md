@@ -20,7 +20,7 @@ Virtualization
 - How do we engage the Cloud?
 - What about me, now; as a student?
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-131305.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-496196.png
 
 ### Why is virtualization important to ... Computer Science?
 Virtualization
@@ -28,7 +28,7 @@ Virtualization
 - What if we can put an entire OS into a process?
 - How can this help us design, develop and specify?
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-131305.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-496196.png
 
 ### What virtualization options are available to us?
 Desktop
@@ -36,39 +36,39 @@ Desktop
 - VMware Workstation (demonstrated)
 - Parallels (for macOS), Hyper-V for Windows
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-131305.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-496196.png
 
 ### What virtualization options are available to us?
 Containers
 - A new idea, a vm as a process...
   - Docker
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-349362.png
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
 ### What do we mean by the Cloud?
 Capacity Provisioning -or- virtualization on someone else's hardware
 - Pay for what you use
 - Highly scalable
 - Almost remove capex for IT infrastructure, and "shift" it to opex
  
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-349362.png
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
 ### What is the Cloud to Computer Science?
 - Separates the solution from the platform
 - Allows us to apply considerable resources to difficult problems
  
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-349362.png
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
 ### How do we engage the Cloud?
 - Platform as a Service
 - Infrastructure as a Service
 - Software as a Service
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-349362.png
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
 ### How do we engage the Cloud?
 - Private Cloud
 - Community Cloud
 - Public Cloud
 - Hybrid Cloud
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-349362.png
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-408405.jpg
 ### What about me, now; as a student?
 Easiest "try out" providers
 - Google Cloud Platform
