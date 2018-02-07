@@ -1,10 +1,10 @@
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-623748.jpg
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-108554.jpg
 
 ## Computer Science II
 
 ### Lecture 7
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-623748.jpg
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-108554.jpg
 
 ### Special Section: Virtualization and the Cloud
 We talked last time about the benefits of virtualization: from virtual machines, containers to the OS.  We installed VirtualBox on our development machines, and ran Ubuntu within it.  Today we will work a bit with Docker, a container engine, and create a workstation on the cloud.
@@ -41,5 +41,5 @@ Create an NGinx instance, with our own webpage
 1. Configure yourself
 1. Connect
 
-+++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-91788.jpg 
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-91788.jpg
 ### Make an Ubuntu Workstation, on Google Cloud Platform
