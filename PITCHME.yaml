@@ -5,8 +5,8 @@
 # https://github.com/gitpitch/gitpitch/wiki/Slideshow-Settings
 #
 # theme : moon
-theme-override : assets/css/PITCHME.codemax.css
-highlight : atom-one-light
+# theme-override : assets/css/PITCHME.codemax.css
+# highlight : atom-one-light
 logo : assets/image/logo.png
 background : assets/image/octavian-rosca.jpg
 transition : none
