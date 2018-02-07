@@ -61,7 +61,7 @@ Create an NGinx instance, with our own webpage
 ### Configure access
 - configure the firewall to allow vnc-server on 5901
 - put a network tag for "vnc-server"
-- Do you have a VNC remote access? RealVNC? TightVNC?
+- Do you have a VNC remote access client? RealVNC? TightVNC?
 
 +++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-91788.jpg
 ### Configure the instance - install desktop
@@ -108,3 +108,6 @@ unset DBUS_SESSION_BUS_ADDRESS
 #/etc/X11/Xsession - comment this line out!
 gnome-session --session=gnome-flashback-metacity --disable-acceleration-check --debug &
 ```
++++?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-91788.jpg
+### Show them how to keep it cheap!
+- stop the machine when it is not in use!
