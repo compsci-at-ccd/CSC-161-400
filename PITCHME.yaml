@@ -7,8 +7,7 @@
 # theme : moon
 # theme-override : assets/css/PITCHME.codemax.css
 # highlight : atom-one-light
-logo : assets/image/logo.png
-background : assets/image/octavian-rosca.jpg
-transition : none
+#background : assets/image/octavian-rosca.jpg
+#transition : none
 published : true
-footnote : "Community College of Denver : Computer Science II : CSC 161-400"
+#footnote : "Community College of Denver : Computer Science II : CSC 161-400"
