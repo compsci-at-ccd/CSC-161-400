@@ -21,3 +21,9 @@ We will be working intensively with types and coding mechanisms.
 
 ### Lecture 5
 We will be continuing with Chapter 12, hopefully a little better off. (Sorry guys!)
+
+### Lecture 6
+Introduction to virtualization and the Cloud.
+
+## Lecture 7
+Docker, and Creating a Workstation on GCP

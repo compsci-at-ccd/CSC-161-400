@@ -1,10 +1,19 @@
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-120534.png
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-623748.jpg
 
 ## Computer Science II
 
-### Lecture 5
+### Lecture 7
+## Containers, and a Workstation on the Cloud
 
----?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-120534.png
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-623748.jpg
 
-### Chapter 12
-The lectures for this chapter will be entirely in code.
+### Today
+Containers
+- Docker
+Cloud
+- GCP
+
+---?image=https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-174274.jpg
+
+### Containers
+What are containers.
