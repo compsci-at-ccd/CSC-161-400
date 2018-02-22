@@ -1,6 +1,6 @@
 package edu.ccd;
 
-public abstract class InventoryItem {
+public abstract class InventoryItem implements Auditable {
     private static long current_inventory_number = 0;
 
     public String _name;
@@ -21,5 +21,17 @@ public abstract class InventoryItem {
 
     public long getInventoryNumber() {
         return inventory_number;
+    }
+
+    public static void displayReportHeader() {
+        System.out.println("Identity \t\t\tName \t\t\t\t\t\tValue");
+    }
+
+    public void displayDetail() {
+        System.out.printf("%d\t\t\t\t\t%15s\t\t\t\t%.2f\n", inventory_number, _name, _value );
+    }
+
+    public static void displayTotalItemsInInventory() {
+        System.out.printf("The total number of items is %d\n" , current_inventory_number);
     }
 }
