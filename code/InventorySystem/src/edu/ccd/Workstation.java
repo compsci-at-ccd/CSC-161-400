@@ -1,9 +1,12 @@
 package edu.ccd;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Workstation {
     private ArrayList<InventoryItem> workstationComponents = new ArrayList<InventoryItem>();
+
+    public Workstation() {}
 
     public Workstation(CPU aCPU, Monitor aMonitor, Keyboard aKeyboard, Mouse aMouse) {
         workstationComponents.add(aCPU);
@@ -12,11 +15,22 @@ public class Workstation {
         workstationComponents.add(aMouse);
     }
 
-    public void addCPU (CPU anotherCPU) throws TooManyCPUsException {
-        for(int index = 0; index < workstationComponents.size(); ++index) {
-            if( workstationComponents.get(index) instanceof  CPU)
-                throw new TooManyCPUsException();
+    public void addInventoryItem(InventoryItem _addme) throws DuplicateItemException {
+        int monitorcount = 0;
+        Iterator<InventoryItem> ptr = workstationComponents.iterator();
+        while(ptr.hasNext()) {
+            InventoryItem focus = ptr.next();
+            if( focus instanceof  CPU)
+                throw new DuplicateItemException("Too many CPUs.");
+            if( focus instanceof  Monitor) {
+                if(++monitorcount > 1)
+                    throw new DuplicateItemException("Too many monitors.");
+            }
+            if( focus instanceof  Keyboard)
+                throw new DuplicateItemException("Too many keyboards.");
+            if( focus instanceof  Mouse)
+                throw new DuplicateItemException("Too many mice.");
         }
-        workstationComponents.add(anotherCPU);
+        workstationComponents.add(_addme);
     }
 }

@@ -4,7 +4,6 @@ import javax.swing.*;
 
 public class Main {
 
-
     public static void main(String[] args) {
         float total_of_inventory_value = 0.0f;
 
@@ -49,7 +48,7 @@ public class Main {
                 System.out.println("Item not serialized.");
         }
 
-        if (abstractItem instanceof Keyboard)
+        if (abstractItem instanceof CPU)
             System.out.println("Yes!");
         else
             System.out.println("No!");
@@ -58,11 +57,34 @@ public class Main {
         Workstation myWorkstation = new Workstation(new CPU("Lab Computer", 1500f), new Monitor("Dell ElCheapo", 1f), new Keyboard("DasKeyboard", 120f), new Mouse() );
 
         try {
-            myWorkstation.addCPU(new CPU("Just bought this at Micro Center", 3900f));
+            myWorkstation.addInventoryItem(new CPU("Just bought this at Micro Center", 3900f));
         }
-        catch (TooManyCPUsException e) {
+        catch (DuplicateItemException e) {
             System.out.println(e.getMessage());
         }
+
+        Workstation newWorkstation = new Workstation();
+
+        try {
+            newWorkstation.addInventoryItem(new Monitor("Monitor1", 100f));
+        }
+        catch (DuplicateItemException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            newWorkstation.addInventoryItem(new Monitor("Monitor2", 100f));
+        }
+        catch (DuplicateItemException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            newWorkstation.addInventoryItem(new Monitor("Monitor3", 100f));
+        }
+        catch (DuplicateItemException e) {
+            System.out.println(e.getMessage());
+        }
+
 
     }
 }
