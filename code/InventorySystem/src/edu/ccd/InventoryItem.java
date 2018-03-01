@@ -11,6 +11,17 @@ public abstract class InventoryItem implements Auditable {
         inventory_number = ++current_inventory_number;
     }
 
+    public static boolean canCreate(String name) throws ComponentHasNoNameException {
+        if( name.isEmpty() ) {
+            throw new ComponentHasNoNameException("Cannot create without a name.");
+        }
+        return true;
+    }
+
+    public InventoryItem( String name ) {
+        _name = name;
+    }
+
     public String getName() {
         return _name;
     }
