@@ -11,7 +11,7 @@ public class Main {
         assert !routingnumber.isEmpty() : "No routing number provided";
 
         float balance = deposit_amount;
-        System.out.println("I am depositing at the bank: $" + deposit_amount);
+        Notifications.the().displayNotification("I am depositing at the bank: $" + deposit_amount);
 
         //Postconditions:
         assert balance > 0.0f : "No operating funds. Close the shop.  Everyone file for unemployment!";
@@ -19,35 +19,47 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
+        Notifications.the().displayNotification("Starting program...");
+        Notifications.the().toggleQuietMode();
+        
         depositMoney("Operationsfunds", 3000f);
-
         float total_of_inventory_value = 0.0f;
 
-        Notifications notify = new Notifications();
-        MobileNotification mnote = new MobileNotification();
-        Notifier notifier = notify;
         ArrayList<InventoryItem> mystuff = new ArrayList<InventoryItem>();
         try {
             if( InventoryItem.canCreate("myCPU") )
                 mystuff.add(new CPU("myCPU", 3000f));
+        } catch (ComponentHasNoNameException e) {
+            Notifications.the().displayNotification(e.getMessage());
+            mystuff.add(new Monitor("Unknown CPU", 1f));
+        }
+        try {
             if( InventoryItem.canCreate("") )
                 mystuff.add(new Monitor("", 300f));
+        } catch (ComponentHasNoNameException e) {
+            Notifications.the().displayNotification(e.getMessage());
+            mystuff.add(new Monitor("Unknown Monitor", 1f));
+        }
+        try {
             if( InventoryItem.canCreate("DasKeyboard") )
                 mystuff.add(new Keyboard("DasKeyboard", 150f));
         } catch (ComponentHasNoNameException e) {
-            System.out.println(e);
+            Notifications.the().displayNotification(e.getMessage());
+            mystuff.add(new Monitor("Unknown Keyboard", 1f));
         }
-	    System.out.println("Inventory system started.");
+	    Notifications.the().displayNotification("Inventory system started.");
 
 	    InventoryItem.displayReportHeader();
+
+	    int x = 5;
+	    Trace.the().displayNotification("Is x really 5? " + (x==5?"Yes":"No"));
 
 	    for(int index = 0; index < mystuff.size(); ++index) {
 	        mystuff.get(index).displayDetail();
 	        total_of_inventory_value+=mystuff.get(index).getValue();
-            notifier.displayNotification("Inventory number " + mystuff.get(index).getInventoryNumber() + " is " + mystuff.get(index).getName());
+            Notifications.the().displayNotification("Inventory number " + mystuff.get(index).getInventoryNumber() + " is " + mystuff.get(index).getName());
         }
-        System.out.println("My inventory value is $" + total_of_inventory_value);
+        Notifications.the().displayNotification("My inventory value is $" + total_of_inventory_value);
         InventoryItem.displayTotalItemsInInventory();
 
         CPU concreteItem = concreteItem = new CPU("Something", 300f);
@@ -55,8 +67,8 @@ public class Main {
         
         InventoryItem abstractItem = ((InventoryItem)concreteItem);
 
-        System.out.println("This is concreteItem as a String " + concreteItem.toString());
-        System.out.println("This is abstractItem as a String " + abstractItem.toString());
+        Notifications.the().displayNotification("This is concreteItem as a String " + concreteItem.toString());
+        Notifications.the().displayNotification("This is abstractItem as a String " + abstractItem.toString());
 
         concreteItem.iAmACPU();
         //but I cannnot say testme.iAmACPU, because I am a InventoryItem...but am I?
@@ -68,15 +80,15 @@ public class Main {
                 System.out.print("Item not an inventory item.");
 
             if (mystuff.get(jndex) instanceof SerializedItem)
-                System.out.println(((SerializedItem) mystuff.get(jndex)).getSerialnumber());
+                Notifications.the().displayNotification( ((SerializedItem) mystuff.get(jndex)).getSerialnumber() );
             else
-                System.out.println("Item not serialized.");
+                Notifications.the().displayNotification("Item not serialized.");
         }
 
         if (abstractItem instanceof CPU)
-            System.out.println("Yes!");
+            Notifications.the().displayNotification("Yes!");
         else
-            System.out.println("No!");
+            Notifications.the().displayNotification("No!");
 
         //-- Workstation class testing space
         Workstation myWorkstation = new Workstation(new CPU("Lab Computer", 1500f), new Monitor("Dell ElCheapo", 1f), new Keyboard("DasKeyboard", 120f), new Mouse());
@@ -86,10 +98,10 @@ public class Main {
                 myWorkstation.addInventoryItem(new CPU("Just bought this at Micro Center", 3900f));
         }
         catch (DuplicateItemException e) {
-            System.out.println(e.getMessage());
+            Notifications.the().displayNotification(e.getMessage());
         }
         catch (ComponentHasNoNameException ce) {
-            System.out.println(ce.getMessage());
+            Notifications.the().displayNotification(ce.getMessage());
         }
 
         Workstation newWorkstation = new Workstation();
@@ -98,20 +110,20 @@ public class Main {
             newWorkstation.addInventoryItem(new Monitor("Monitor1", 100f));
         }
         catch (DuplicateItemException e) {
-            System.out.println(e.getMessage());
+            Notifications.the().displayNotification(e.getMessage());
         }
 
         try {
             newWorkstation.addInventoryItem(new Monitor("Monitor2", 100f));
         }
         catch (DuplicateItemException e) {
-            System.out.println(e.getMessage());
+            Notifications.the().displayNotification(e.getMessage());
         }
         try {
             newWorkstation.addInventoryItem(new Monitor("Monitor3", 100f));
         }
         catch (DuplicateItemException e) {
-            System.out.println(e.getMessage());
+            Notifications.the().displayNotification(e.getMessage());
         }
     }
 }

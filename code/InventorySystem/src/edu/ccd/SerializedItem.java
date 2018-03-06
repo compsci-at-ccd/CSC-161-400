@@ -1,13 +1,13 @@
 package edu.ccd;
 
 public abstract class SerializedItem extends InventoryItem {
-    private long _serialnumber = 1701;
+    private String _serialnumber = "1701";
 
-    public void setSerialnumber(long serialnumber) {
+    public void setSerialnumber(String serialnumber) {
         _serialnumber = serialnumber;
     }
 
-    public long getSerialnumber(){
+    public String getSerialnumber(){
         return _serialnumber;
     }
 }
