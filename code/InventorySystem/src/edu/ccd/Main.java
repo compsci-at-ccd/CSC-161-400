@@ -4,28 +4,28 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void depositMoney(String routingnumber, float deposit_amount) {
-        //Preconditions:
+    private static void depositMoney(String routingnumber, float deposit_amount) {
+        //Pre-conditions:
         assert deposit_amount > 0.0f : "Cannot deposit a debit";
         assert deposit_amount != 0.0f : "Non operation";
         assert !routingnumber.isEmpty() : "No routing number provided";
 
-        float balance = deposit_amount;
         Notifications.the().displayNotification("I am depositing at the bank: $" + deposit_amount);
 
-        //Postconditions:
-        assert balance > 0.0f : "No operating funds. Close the shop.  Everyone file for unemployment!";
+        //Post-conditions:
+        assert deposit_amount > 0.0f : "No operating funds. Close the shop.  Everyone file for unemployment!";
 
     }
 
     public static void main(String[] args) {
-        Notifications.the().displayNotification("Starting program...");
+
+        /*Notifications.the().displayNotification("Starting program...");
         Notifications.the().toggleQuietMode();
-        
+
         depositMoney("Operationsfunds", 3000f);
         float total_of_inventory_value = 0.0f;
 
-        ArrayList<InventoryItem> mystuff = new ArrayList<InventoryItem>();
+        ArrayList<InventoryItem> mystuff = new ArrayList<>();
         try {
             if( InventoryItem.canCreate("myCPU") )
                 mystuff.add(new CPU("myCPU", 3000f));
@@ -54,17 +54,17 @@ public class Main {
 	    int x = 5;
 	    Trace.the().displayNotification("Is x really 5? " + (x==5?"Yes":"No"));
 
-	    for(int index = 0; index < mystuff.size(); ++index) {
-	        mystuff.get(index).displayDetail();
-	        total_of_inventory_value+=mystuff.get(index).getValue();
-            Notifications.the().displayNotification("Inventory number " + mystuff.get(index).getInventoryNumber() + " is " + mystuff.get(index).getName());
+        for (InventoryItem aMystuff : mystuff) {
+            aMystuff.displayDetail();
+            total_of_inventory_value += aMystuff.getValue();
+            Notifications.the().displayNotification("Inventory number " + aMystuff.getInventoryNumber() + " is " + aMystuff.getName());
         }
         Notifications.the().displayNotification("My inventory value is $" + total_of_inventory_value);
         InventoryItem.displayTotalItemsInInventory();
 
         CPU concreteItem = concreteItem = new CPU("Something", 300f);
 
-        
+
         InventoryItem abstractItem = ((InventoryItem)concreteItem);
 
         Notifications.the().displayNotification("This is concreteItem as a String " + concreteItem.toString());
@@ -73,14 +73,14 @@ public class Main {
         concreteItem.iAmACPU();
         //but I cannnot say testme.iAmACPU, because I am a InventoryItem...but am I?
 
-        for(int jndex = 0; jndex < mystuff.size(); ++jndex) {
-            if (mystuff.get(jndex) instanceof InventoryItem)
-                System.out.print(((InventoryItem) mystuff.get(jndex)).getName() + ", serial number: ");
+        for (InventoryItem aMystuff : mystuff) {
+            if (aMystuff instanceof InventoryItem)
+                System.out.print(((InventoryItem) aMystuff).getName() + ", serial number: ");
             else
                 System.out.print("Item not an inventory item.");
 
-            if (mystuff.get(jndex) instanceof SerializedItem)
-                Notifications.the().displayNotification( ((SerializedItem) mystuff.get(jndex)).getSerialnumber() );
+            if (aMystuff instanceof SerializedItem)
+                Notifications.the().displayNotification(((SerializedItem) aMystuff).getSerialnumber());
             else
                 Notifications.the().displayNotification("Item not serialized.");
         }
@@ -97,11 +97,8 @@ public class Main {
             if (InventoryItem.canCreate("Just bought this at Micro Center"))
                 myWorkstation.addInventoryItem(new CPU("Just bought this at Micro Center", 3900f));
         }
-        catch (DuplicateItemException e) {
+        catch (Exception e) {
             Notifications.the().displayNotification(e.getMessage());
-        }
-        catch (ComponentHasNoNameException ce) {
-            Notifications.the().displayNotification(ce.getMessage());
         }
 
         Workstation newWorkstation = new Workstation();
@@ -124,6 +121,16 @@ public class Main {
         }
         catch (DuplicateItemException e) {
             Notifications.the().displayNotification(e.getMessage());
+        }*/
+
+        InventoryDatabase idb = new InventoryDatabase();
+
+        idb.AddRole(new Role("admin", "InventoryTable", true, true, true, true, true));
+        idb.AddRole(new Role("super", "InventoryTable", true, true, true, true, true));
+
+        if(idb.getSize() > 2) {
+            idb.ViewRole(3).printme();
         }
+
     }
 }
