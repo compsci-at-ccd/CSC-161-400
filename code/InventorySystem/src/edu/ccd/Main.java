@@ -123,14 +123,17 @@ public class Main {
             Notifications.the().displayNotification(e.getMessage());
         }*/
 
-        InventoryDatabase idb = new InventoryDatabase();
+        InventoryDatabaseMySQL idb = new InventoryDatabaseMySQL();
 
         idb.AddRole(new Role("admin", "InventoryTable", true, true, true, true, true));
         idb.AddRole(new Role("super", "InventoryTable", true, true, true, true, true));
+        idb.AddRole(new Role("TheDude", "InventoryTable", true, true, true, true, true));
 
         if(idb.getSize() > 2) {
-            idb.ViewRole(3).printme();
+            Role.print(idb.ViewRole(3));
+            //idb.DeleteRole(3);
+            Role.print(idb.ViewRole(3));
         }
-
+        System.out.println("End program.");
     }
 }
