@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Main {
 
-    private static void depositMoney(String routingnumber, float deposit_amount) {
+    /*private static void depositMoney(String routingnumber, float deposit_amount) {
         //Pre-conditions:
         assert deposit_amount > 0.0f : "Cannot deposit a debit";
         assert deposit_amount != 0.0f : "Non operation";
@@ -15,14 +15,14 @@ public class Main {
         //Post-conditions:
         assert deposit_amount > 0.0f : "No operating funds. Close the shop.  Everyone file for unemployment!";
 
-    }
+    }*/
 
     public static void main(String[] args) {
 
         /*Notifications.the().displayNotification("Starting program...");
         Notifications.the().toggleQuietMode();
 
-        depositMoney("Operationsfunds", 3000f);
+        //depositMoney("Operationsfunds", 3000f);
         float total_of_inventory_value = 0.0f;
 
         ArrayList<InventoryItem> mystuff = new ArrayList<>();
@@ -125,15 +125,19 @@ public class Main {
 
         InventoryDatabaseMySQL idb = new InventoryDatabaseMySQL();
 
+        idb.AddInventoryItem( new CPU("myCPU", 3000f) );
+
         idb.AddRole(new Role("admin", "InventoryTable", true, true, true, true, true));
         idb.AddRole(new Role("super", "InventoryTable", true, true, true, true, true));
         idb.AddRole(new Role("TheDude", "InventoryTable", true, true, true, true, true));
 
-        if(idb.getSize() > 2) {
+        if(idb.getRoleSize() > 2) {
             Role.print(idb.ViewRole(3));
             //idb.DeleteRole(3);
             Role.print(idb.ViewRole(3));
         }
+
+
         System.out.println("End program.");
     }
 }

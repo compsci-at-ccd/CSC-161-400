@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class InventoryDatabase implements InventoryDatabaseInterface{
     private ArrayList<Role> roles = new ArrayList();
+    private ArrayList<InventoryItem> inventory = new ArrayList<>();
 
     public int getSize() {
         return roles.size();
@@ -36,5 +37,10 @@ public class InventoryDatabase implements InventoryDatabaseInterface{
     @Override
     public Role ReloadRole(int uid) {
         return ViewRole(uid);
+    }
+
+    @Override
+    public boolean AddInventoryItem(InventoryItem inv_item) {
+        return inventory.add(inv_item);
     }
 }

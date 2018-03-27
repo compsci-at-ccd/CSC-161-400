@@ -23,7 +23,7 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface{
         return conn;
     }
 
-    public int getSize() {
+    public int getRoleSize() {
         try {
             ResultSet results = getConnection().createStatement().executeQuery(
                     "SELECT COUNT(*) FROM Roles;"
@@ -102,5 +102,22 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface{
     @Override
     public Role ReloadRole(int uid) {
         return ViewRole(uid);
+    }
+
+    @Override
+    public boolean AddInventoryItem(InventoryItem inv_item) {
+        try {
+            getConnection().createStatement().executeUpdate(
+                    "INSERT INTO Inventory (inventory_number, kind, name, value, serial_number)" +
+                            " VALUES (" + inv_item.getInventoryNumber() +
+                            ", '" + inv_item.getClass().getName() +
+                            "', '" + inv_item.getName() +
+                            "', " + inv_item.getValue() +
+                            (inv_item instanceof SerializedItem?", '" +((SerializedItem)inv_item).getSerialnumber()+"');":", '0');"));
+        } catch (SQLException any) {
+            any.printStackTrace();
+        }
+
+        return true;
     }
 }

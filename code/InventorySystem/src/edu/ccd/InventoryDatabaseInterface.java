@@ -6,4 +6,6 @@ public interface InventoryDatabaseInterface {
     boolean DeleteRole(int uid);
     boolean EditRole(int replaceme, Role replacewith);
     Role ReloadRole(int uid);
+
+    boolean AddInventoryItem(InventoryItem inv_item);
 }
