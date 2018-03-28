@@ -123,6 +123,8 @@ public class Main {
             Notifications.the().displayNotification(e.getMessage());
         }*/
 
+        //new Login();
+
         InventoryDatabaseMySQL idb = new InventoryDatabaseMySQL();
 
         idb.AddInventoryItem( new CPU("myCPU", 3000f) );
