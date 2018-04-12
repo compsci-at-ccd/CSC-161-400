@@ -1,50 +1,41 @@
 package edu.ccd;
 
-import edu.ccd.AppUI.Login;
-import edu.ccd.Model.*;
+import edu.ccd.appUI.Login;
+import edu.ccd.appUI.NotificationDialog;
+import edu.ccd.config.Configuration;
+import edu.ccd.model.database.InvalidUserOrNoPermissionException;
+import edu.ccd.model.database.InventoryDatabaseMySQL;
+import edu.ccd.model.database.InventoryItem;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        ArrayList<InventoryItem> operationalContext = new ArrayList<>();
 
-        new Login();
+        /*try {
+            new Configuration().writeConfig("This is what should show up in the dialog.");
+            NotificationDialog.the().displayNotification(new Configuration().readConfig());
+        } catch (IOException e) {
+            System.out.println("Could not find a config file.");
+        }*/
 
-        /*InventoryDatabaseMySQL idb = new InventoryDatabaseMySQL();
+        InventoryDatabaseMySQL idb = new InventoryDatabaseMySQL();
+        new Login(idb);
 
-        CPU myCPU = new CPU("myCPU", 3000f);
-        myCPU.setSerialnumber("000DESTRUCT0");
-        idb.AddInventoryItem( myCPU );
-
-        //String classfromdatabase = "edu.ccd.Model.CPU";
-        //InventoryItem myItem;
-
-        //if (classfromdatabase == "edu.ccd.Model.CPU" )
-        //    myItem = new edu.ccd.Model.CPU();
-
-        /*Object something = null;
         try {
-            something = Class.forName(classfromdatabase).newInstance();
-        }catch(Exception e) {
-            System.out.println("Uh oh.");
+            operationalContext = idb.getAllInventoryOfKind("edu.ccd.model.inventoryitems.Keyboard");
+        } catch (InvalidUserOrNoPermissionException e) {
+            System.out.println("No user or permissions...");
         }
 
-        System.out.println("Is this a " + something.getClass().getName());
-
-        idb.AddRole(new Role("admin", "InventoryTable", true, true, true, true, true));
-        idb.AddRole(new Role("super", "InventoryTable", true, true, true, true, true));
-        idb.AddRole(new Role("TheDude", "InventoryTable", true, true, true, true, true));
-
-        if(idb.getRoleSize() > 2) {
-            Role.print(idb.ViewRole(3));
-            //idb.DeleteRole(3);
-            Role.print(idb.ViewRole(3));
+        for (InventoryItem each : operationalContext) {
+            System.out.println(each.getName() + " of kind " + each.getClass().getName());
         }
-
-        InventoryItem something = idb.ViewInventoryItem(1);
-        System.out.println("Name is " + something.getName());
-        if (something instanceof SerializedItem)
-            {System.out.println("Serial Number is " + ((SerializedItem) something).getSerialnumber());}*/
-
         System.out.println("End program.");
+
     }
 }
