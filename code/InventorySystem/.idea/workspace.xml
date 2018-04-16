@@ -41,34 +41,22 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="Inventory: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Inventory@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="Inventory: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Roles: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edu/ccd/Main.java">
+      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/edu/ccd/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/edu/ccd/appUI/Login.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="132">
+              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+              <folding>
+                <element signature="e#1130#1131#0" expanded="true" />
+                <element signature="e#1162#1163#0" expanded="true" />
+                <element signature="e#1345#1346#0" expanded="true" />
+                <element signature="e#1371#1372#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,8 +66,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -99,9 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/edu/ccd/Auditable.java" />
-        <option value="$PROJECT_DIR$/src/edu/ccd/Keyboard.java" />
-        <option value="$PROJECT_DIR$/src/edu/ccd/TooManyCPUsException.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/DuplicateItemException.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/Workstation.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/ComponentHasNoNameException.java" />
@@ -141,15 +126,18 @@
         <option value="$PROJECT_DIR$/src/edu/ccd/model/inventoryitems/Workstation.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/textUI/Trace.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/dce6bc77-a82b-439c-8bde-b4914f3a4caf/console.sql" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/dce6bc77-a82b-439c-8bde-b4914f3a4caf/console_1.sql" />
         <option value="$PROJECT_DIR$/src/edu/ccd/model/inventoryitems/CPU.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/model/inventoryitems/Monitor.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/model/inventoryitems/Mouse.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/model/database/InvalidUserOrNoPermissionException.java" />
-        <option value="$PROJECT_DIR$/src/edu/ccd/model/database/InventoryDatabaseMySQL.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/contracts/InventoryDatabaseInterface.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/Main.java" />
+        <option value="$PROJECT_DIR$/src/edu/ccd/model/security/SecurityContext.java" />
         <option value="$PROJECT_DIR$/src/edu/ccd/appUI/Login.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/dce6bc77-a82b-439c-8bde-b4914f3a4caf/console_1.sql" />
+        <option value="$PROJECT_DIR$/src/edu/ccd/appUI/AppUIMainWindow.java" />
+        <option value="$PROJECT_DIR$/src/edu/ccd/model/database/InventoryDatabaseMySQL.java" />
+        <option value="$PROJECT_DIR$/src/edu/ccd/MainWindow.java" />
       </list>
     </option>
   </component>
@@ -186,9 +174,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,52 +186,13 @@
             </path>
             <path>
               <item name="InventorySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="InventorySystem" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InventorySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="InventorySystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InventorySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="InventorySystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ccd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InventorySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="InventorySystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ccd" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InventorySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="InventorySystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ccd" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InventorySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="InventorySystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ccd" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InventorySystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,7 +231,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="edu.ccd.Main" />
+      <option name="MAIN_CLASS_NAME" value="edu.ccd.MainWindow" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -355,12 +304,14 @@
       <workItem from="1522712689086" duration="5970000" />
       <workItem from="1522871534744" duration="2086000" />
       <workItem from="1522874176547" duration="14075000" />
-      <workItem from="1523490320948" duration="6083000" />
+      <workItem from="1523490320948" duration="6283000" />
+      <workItem from="1523672486744" duration="66000" />
+      <workItem from="1523672679653" duration="22290000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93162000" />
+    <option name="totallyTimeSpent" value="115718000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -373,7 +324,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-119" y="33" width="1920" height="1047" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20184544" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -384,13 +334,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5201845" sideWeight="0.50215286" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992464" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20530565" sideWeight="0.49784714" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22029988" sideWeight="0.49784714" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31487888" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25026911" sideWeight="0.49441788" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2093649" sideWeight="0.49441788" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21097955" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21683967" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11786868" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2545748" sideWeight="0.50558215" order="2" side_tool="true" content_ui="tabs" />
@@ -405,7 +355,7 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992464" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2295271" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21683967" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -459,20 +409,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/inventoryitems/Keyboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/SerializedItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/inventoryitems/Monitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -502,11 +438,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ccd/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ccd/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
+          <folding>
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#1345#1346#0" expanded="true" />
+            <element signature="e#1371#1372#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -673,13 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ccd/textUI/Trace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/database/InventoryItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -699,21 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ccd/appUI/NotificationDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/dce6bc77-a82b-439c-8bde-b4914f3a4caf/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -759,13 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/d8de06d1/dce6bc77-a82b-439c-8bde-b4914f3a4caf/Inventory.Inventory">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/database/InvalidUserOrNoPermissionException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -778,7 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,52 +697,107 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/database/InventoryDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-164">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/database/InventoryDatabaseMySQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-176">
-          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4367#4368#0" expanded="true" />
-            <element signature="e#4435#4436#0" expanded="true" />
-            <element signature="e#4488#4489#0" expanded="true" />
-            <element signature="e#4524#4525#0" expanded="true" />
-            <marker date="1523493377911" expanded="true" signature="1158:1184" ph="SELECT COUNT... Roles" />
-            <marker date="1523493377911" expanded="true" signature="1536:2139" ph="INSERT INTO Roles... " />
-            <marker date="1523493377911" expanded="true" signature="2463:2493" ph="SELECT * FRO... Roles" />
-            <marker date="1523493377911" expanded="true" signature="3299:3352" ph="SELECT * FRO... Roles" />
-            <marker date="1523493377911" expanded="true" signature="4125:4153" ph="DELETE FROM Roles... " />
-            <marker date="1523493377911" expanded="true" signature="4972:5282" ph="INSERT INTO Inventory... " />
-            <marker date="1523493377911" expanded="true" signature="4972:5428" ph="INSERT INTO Inventory... " />
-            <marker date="1523493377911" expanded="true" signature="4972:5438" ph="INSERT INTO Inventory... " />
-            <marker date="1523493377911" expanded="true" signature="5884:5929" ph="DELETE FROM Inventory... " />
-            <marker date="1523493377911" expanded="true" signature="6801:6848" ph="SELECT * FRO... Inventory" />
-            <marker date="1523493377911" expanded="true" signature="8137:8160" ph="SELECT * FRO... Inventory" />
-            <marker date="1523493377911" expanded="true" signature="9191:9214" ph="SELECT * FRO... Inventory" />
-            <marker date="1523493377911" expanded="true" signature="10400:10423" ph="SELECT * FRO... Inventory" />
-            <marker date="1523493377911" expanded="true" signature="10400:10438" ph="SELECT * FRO... Inventory" />
-            <marker date="1523493377911" expanded="true" signature="10400:10452" ph="SELECT * FRO... Inventory" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/database/InventoryDatabase.java" />
     <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/security/Role.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ccd/appUI/NotificationDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ccd/textUI/Trace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/security/SecurityContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/dce6bc77-a82b-439c-8bde-b4914f3a4caf/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="21" lean-forward="true" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ccd/appUI/AppUIMainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ccd/appUI/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="63" column="48" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="48" />
+          <folding>
+            <element signature="e#2485#2486#0" expanded="true" />
+            <element signature="e#2538#2539#0" expanded="true" />
+            <element signature="e#2578#2579#0" expanded="true" />
+            <element signature="e#2646#2647#0" expanded="true" />
+            <element signature="e#2695#2696#0" expanded="true" />
+            <element signature="e#2738#2739#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ccd/model/database/InventoryDatabaseMySQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="283" column="42" lean-forward="false" selection-start-line="283" selection-start-column="42" selection-end-line="283" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#12468#12476#0" expanded="true" />
+            <marker date="1523772505326" expanded="true" signature="1213:1239" ph="SELECT COUNT... Roles" />
+            <marker date="1523772505326" expanded="true" signature="1618:2221" ph="INSERT INTO Roles... " />
+            <marker date="1523772505326" expanded="true" signature="2619:2649" ph="SELECT * FRO... Roles" />
+            <marker date="1523772505326" expanded="true" signature="3791:3844" ph="SELECT * FRO... Roles" />
+            <marker date="1523772505326" expanded="true" signature="4953:4981" ph="DELETE FROM Roles... " />
+            <marker date="1523772505326" expanded="true" signature="5800:6110" ph="INSERT INTO Inventory... " />
+            <marker date="1523772505326" expanded="true" signature="5800:6256" ph="INSERT INTO Inventory... " />
+            <marker date="1523772505326" expanded="true" signature="5800:6266" ph="INSERT INTO Inventory... " />
+            <marker date="1523772505326" expanded="true" signature="6712:6757" ph="DELETE FROM Inventory... " />
+            <marker date="1523772505326" expanded="true" signature="7629:7676" ph="SELECT * FRO... Inventory" />
+            <marker date="1523772505326" expanded="true" signature="9012:9035" ph="SELECT * FRO... Inventory" />
+            <marker date="1523772505326" expanded="true" signature="10113:10136" ph="SELECT * FRO... Inventory" />
+            <marker date="1523772505326" expanded="true" signature="11369:11392" ph="SELECT * FRO... Inventory" />
+            <marker date="1523772505326" expanded="true" signature="11369:11407" ph="SELECT * FRO... Inventory" />
+            <marker date="1523772505326" expanded="true" signature="11369:11421" ph="SELECT * FRO... Inventory" />
+            <marker date="1523772505326" expanded="true" signature="12629:12699" ph="SELECT DISTI... Inventory" />
+            <marker date="1523772505326" expanded="true" signature="12725:12769" ph="SELECT DISTI... Inventory" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d8de06d1/dce6bc77-a82b-439c-8bde-b4914f3a4caf/Inventory.Inventory">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -842,19 +808,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ccd/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ccd/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ccd/appUI/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="132">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding>
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#1345#1346#0" expanded="true" />
+            <element signature="e#1371#1372#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

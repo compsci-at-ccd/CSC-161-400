@@ -1,5 +1,6 @@
 package edu.ccd.model.database;
 
+import edu.ccd.appUI.AppUIMainWindow;
 import edu.ccd.contracts.InventoryDatabaseInterface;
 import edu.ccd.model.security.Role;
 import edu.ccd.model.SerializedItem;
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class InventoryDatabaseMySQL implements InventoryDatabaseInterface {
+public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUIMainWindow {
     //todo: The Inventory number static needs to be updated if the items are drawn from the database.
 
     private Connection conn = null;
@@ -36,7 +37,7 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface {
                     "SELECT COUNT(*) FROM Roles;"
             );
             while (results.next())
-                return results.getInt(1);
+                return /*results.getInt(1);*/ results.getInt("uid");
         } catch (Exception any) {
             any.printStackTrace();
         }
@@ -66,6 +67,7 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface {
 
     @Override
     public Role ViewRole(int uid) {
+        //todo: This is a much better version, by one of your classmates!
         Role returnme = null;
         try {
             ResultSet results = getConnection().createStatement().executeQuery(
@@ -73,14 +75,14 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface {
             );
             while (results.next()) {
                 returnme = Role.cloneRole(
-                        results.getInt(1),
-                        results.getString(2),
-                        results.getString(3),
-                        results.getBoolean(4),
-                        results.getBoolean(5),
-                        results.getBoolean(6),
-                        results.getBoolean(7),
-                        results.getBoolean(8)
+                        /*results.getInt(1),*/      results.getInt("uid"),
+                        /*results.getString(2),*/   results.getString("rolename"),
+                        /*results.getString(3),*/   results.getString("targetname"),
+                        /*results.getBoolean(4),*/  results.getBoolean("permissions-view"),
+                        /*results.getBoolean(5),*/  results.getBoolean("permissions-add"),
+                        /*results.getBoolean(6),*/  results.getBoolean("permissions-delete"),
+                        /*results.getBoolean(7),*/  results.getBoolean("permissions-edit"),
+                        /*results.getBoolean(8)*/   results.getBoolean("permissions-reload")
                 );
             }
         } catch (Exception any) {
@@ -97,14 +99,14 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface {
             );
             while (results.next()) {
                 userRole = Role.cloneRole(
-                        results.getInt(1),
-                        results.getString(2),
-                        results.getString(3),
-                        results.getBoolean(4),
-                        results.getBoolean(5),
-                        results.getBoolean(6),
-                        results.getBoolean(7),
-                        results.getBoolean(8)
+                        /*results.getInt(1),*/      results.getInt("uid"),
+                        /*results.getString(2),*/   results.getString("rolename"),
+                        /*results.getString(3),*/   results.getString("targetname"),
+                        /*results.getBoolean(4),*/  results.getBoolean("permissions-view"),
+                        /*results.getBoolean(5),*/  results.getBoolean("permissions-add"),
+                        /*results.getBoolean(6),*/  results.getBoolean("permissions-delete"),
+                        /*results.getBoolean(7),*/  results.getBoolean("permissions-edit"),
+                        /*results.getBoolean(8)*/   results.getBoolean("permissions-reload")
                 );
             }
         } catch (Exception any) {
@@ -185,12 +187,12 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface {
                     "SELECT * FROM Inventory WHERE inventory_number=" + uid + ";"
             );
             while (results.next()) {
-                returnme = Class.forName(results.getString(2)).getDeclaredConstructor().newInstance();
-                ((InventoryItem)returnme).setInventoryNumber(results.getInt(1));
-                ((InventoryItem)returnme).setName(results.getString(3));
-                ((InventoryItem)returnme).setValue(results.getFloat(4));
+                returnme = Class.forName(results.getString("kind")).getDeclaredConstructor().newInstance();
+                ((InventoryItem)returnme).setInventoryNumber(results.getInt("inventory_number"));
+                ((InventoryItem)returnme).setName(results.getString("name"));
+                ((InventoryItem)returnme).setValue(results.getFloat("value"));
                 if (returnme instanceof SerializedItem)
-                    ((SerializedItem)returnme).setSerialnumber(results.getString(5));
+                    ((SerializedItem)returnme).setSerialnumber(results.getString("serial_number"));
             }
         } catch (Exception any) {
             any.printStackTrace();
@@ -214,8 +216,8 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface {
             System.out.println("---  ------------------------- -------------------- ---------- ----------------");
             while (results.next()) {
                 System.out.printf("%2d   %-25s %-20s $%,9.2f %s%n",
-                results.getInt(1), results.getString(2), results.getString(3),
-                results.getFloat(4),results.getString(5));
+                results.getInt("inventory_number"), results.getString("kind"), results.getString("name"),
+                results.getFloat("value"),results.getString("serial_number"));
             }
         } catch (Exception any) {
             any.printStackTrace();
@@ -232,12 +234,12 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface {
                     "SELECT * FROM Inventory;"
             );
             while (results.next()) {
-                returnme = Class.forName(results.getString(2)).getDeclaredConstructor().newInstance();
-                ((InventoryItem)returnme).setInventoryNumber(results.getInt(1));
-                ((InventoryItem)returnme).setName(results.getString(3));
-                ((InventoryItem)returnme).setValue(results.getFloat(4));
+                returnme = Class.forName(results.getString("kind")).getDeclaredConstructor().newInstance();
+                ((InventoryItem)returnme).setInventoryNumber(results.getInt("inventory_number"));
+                ((InventoryItem)returnme).setName(results.getString("name"));
+                ((InventoryItem)returnme).setValue(results.getFloat("value"));
                 if (returnme instanceof SerializedItem)
-                    ((SerializedItem)returnme).setSerialnumber(results.getString(5));
+                    ((SerializedItem)returnme).setSerialnumber(results.getString("serial_number"));
                 returnArray.add((InventoryItem)returnme);
             }
         } catch (Exception any) {
@@ -256,13 +258,33 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface {
                     "SELECT * FROM Inventory WHERE kind = '"+look4kind+"';"
             );
             while (results.next()) {
-                returnme = Class.forName(results.getString(2)).getDeclaredConstructor().newInstance();
-                ((InventoryItem)returnme).setInventoryNumber(results.getInt(1));
-                ((InventoryItem)returnme).setName(results.getString(3));
-                ((InventoryItem)returnme).setValue(results.getFloat(4));
+                returnme = Class.forName(results.getString("kind")).getDeclaredConstructor().newInstance();
+                ((InventoryItem)returnme).setInventoryNumber(results.getInt("inventory_number"));
+                ((InventoryItem)returnme).setName(results.getString("name"));
+                ((InventoryItem)returnme).setValue(results.getFloat("value"));
                 if (returnme instanceof SerializedItem)
-                    ((SerializedItem)returnme).setSerialnumber(results.getString(5));
+                    ((SerializedItem)returnme).setSerialnumber(results.getString("serial_number"));
                 returnArray.add((InventoryItem)returnme);
+            }
+        } catch (Exception any) {
+            any.printStackTrace();
+        }
+        return returnArray;
+    }
+
+    @Override
+    public ArrayList<String> getInventoryKinds() throws InvalidUserOrNoPermissionException {
+        if(userRole == null || !userRole.canView() ) throw new InvalidUserOrNoPermissionException(this.getClass().getName());
+
+        ArrayList<String> returnArray = new ArrayList<String>();
+        Object returnme = null;
+        try {
+            ResultSet results = getConnection().createStatement().executeQuery(
+                    /*"SELECT DISTINCT SUBSTRING_INDEX(kind,\".\",-1) as kinds from Inventory;"*/
+                    "SELECT DISTINCT kind as kinds from Inventory;"
+            );
+            while (results.next()) {
+                returnArray.add(results.getString("kinds"));
             }
         } catch (Exception any) {
             any.printStackTrace();

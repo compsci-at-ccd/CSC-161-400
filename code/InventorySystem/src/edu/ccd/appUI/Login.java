@@ -1,25 +1,29 @@
 package edu.ccd.appUI;
 
+import edu.ccd.MainWindow;
 import edu.ccd.model.database.InventoryDatabaseMySQL;
+import edu.ccd.model.security.SecurityContext;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Login{
-    private JTextField username;
-    private JPasswordField password;
+public class Login extends JDialog implements ActionListener{
+    private JTextField userNameField;
+    private JPasswordField passwordField;
     private JButton loginButton;
     private JButton cancelButton;
-    private JFrame mainwindow;
+    private InventoryDatabaseMySQL myDB;
 
     public Login(InventoryDatabaseMySQL theDB) {
-        mainwindow = new JFrame("Login");
-        mainwindow.setSize(300, 150);
-        mainwindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        myDB = theDB;
+        setTitle("Login");
+        //setModal(true);
+        setSize(300, 150);
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
         JPanel panel = new JPanel();
-        mainwindow.add(panel);
+        add(panel);
 
         panel.setLayout(null);
 
@@ -27,48 +31,61 @@ public class Login{
         userLabel.setBounds(10, 10, 80, 25);
         panel.add(userLabel);
 
-        JTextField username = new JTextField(20);
-        username.setBounds(100, 10, 160, 25);
-        panel.add(username);
+        userNameField = new JTextField(20);
+        userNameField.setBounds(100, 10, 160, 25);
+        panel.add(userNameField);
 
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setBounds(10, 40, 80, 25);
         panel.add(passwordLabel);
 
-        JPasswordField password = new JPasswordField(20);
-        password.setBounds(100, 40, 160, 25);
-        panel.add(password);
+        passwordField = new JPasswordField(20);
+        passwordField.setBounds(100, 40, 160, 25);
+        panel.add(passwordField);
 
         loginButton = new JButton("Login");
         loginButton.setBounds(10, 80, 100, 25);
+        loginButton.addActionListener(this);
         panel.add(loginButton);
         panel.getRootPane().setDefaultButton(loginButton);
 
         cancelButton = new JButton("Cancel");
         cancelButton.setBounds(180, 80, 100, 25);
+        cancelButton.addActionListener(this);
         panel.add(cancelButton);
 
+        setModal(true);
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
 
-        mainwindow.setLocationRelativeTo(null);
-        mainwindow.setVisible(true);
-
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if( theDB.Login(username.getText()) ) {
-                    mainwindow.dispose();
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if( e.getSource() instanceof JButton ) {
+            if( ((JButton) e.getSource()).getText() == "Login") {
+                if( myDB.Login( getUserNameField() ) ) {
+                    MainWindow.the().setApplicationSecurityContext(getUserNameField(), getPasswordField());
+                    this.dispose();
                 }
                 else {
-                    username.setText("INVALID USER");
+                    setUserNameField("INVALID USER");
                 }
-            }
-        });
-        cancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            }else {
                 System.out.println("Cancel");
                 System.exit(0);
             }
-        });
+        }
+    }
+
+    public String getUserNameField() {
+        return userNameField.getText().trim();
+    }
+
+    public String getPasswordField() {
+        return passwordField.getPassword().toString().trim();
+    }
+
+    public void setUserNameField(String text) {
+        userNameField.setText(text);
     }
 }
