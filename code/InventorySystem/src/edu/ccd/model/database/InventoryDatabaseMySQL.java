@@ -17,6 +17,10 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
     private Connection conn = null;
     private Role userRole = null;
 
+    public Role getUserRole() {
+        return userRole;
+    }
+
     private Connection getConnection () {
         if(conn == null) {
             try {
@@ -27,6 +31,7 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
             } catch (Exception any) {
                 any.printStackTrace();
             }
+            primeInventory();
         }
         return conn;
     }
@@ -67,7 +72,6 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
 
     @Override
     public Role ViewRole(int uid) {
-        //todo: This is a much better version, by one of your classmates!
         Role returnme = null;
         try {
             ResultSet results = getConnection().createStatement().executeQuery(
@@ -140,7 +144,6 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
 
     @Override
     public boolean AddInventoryItem(InventoryItem inv_item) throws InvalidUserOrNoPermissionException {
-        System.out.println("Called add item with " + inv_item.getName() + " with id " + inv_item.getInventoryNumber() );
         if(userRole == null || !userRole.canAdd() ) throw new InvalidUserOrNoPermissionException(this.getClass().getName());
         if (ViewInventoryItem(inv_item.getInventoryNumber())!=null) {
             return false;
@@ -175,9 +178,9 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
 
     @Override
     public boolean EditInventoryItem(int replaceme, InventoryItem replacewith) throws InvalidUserOrNoPermissionException {
-        System.out.println("Replaceme: " + replaceme + " to be replaced by " + replacewith.getName() + " with id " + replacewith.getInventoryNumber());
         if(userRole == null || !userRole.canEdit() ) throw new InvalidUserOrNoPermissionException(this.getClass().getName());
-        return DeleteInventoryItem(replaceme) && AddInventoryItem(replacewith);
+        InventoryItem replacement = ViewInventoryItem(replaceme).clone(replacewith);
+        return DeleteInventoryItem(replaceme) && AddInventoryItem(replacement);
     }
 
     @Override
@@ -318,6 +321,20 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
             any.printStackTrace();
         }
         return returnArray;
+    }
+
+    public void primeInventory() {
+        int maxInventoryNumber=1;
+        try {
+            ResultSet results = getConnection().createStatement().executeQuery(
+                    "SELECT max(uid) as UID FROM Inventory;"
+            );
+            while (results.next()) {
+                InventoryItem.setBaseUID(results.getInt(1));
+            }
+        } catch (Exception any) {
+            any.printStackTrace();
+        }
     }
 
 }

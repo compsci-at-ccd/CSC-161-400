@@ -7,6 +7,13 @@ public class Keyboard extends InventoryItem {
 
     }
 
+    public Keyboard clone(Keyboard copyfrom) {
+        this._name = copyfrom._name;
+        this._value = copyfrom._value;
+        this.inventory_number = copyfrom.inventory_number;
+        return this;
+    }
+
     public Keyboard(String name, float value) {
         _name = name;
         _value = value;

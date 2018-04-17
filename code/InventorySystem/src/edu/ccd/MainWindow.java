@@ -3,6 +3,7 @@ package edu.ccd;
 import edu.ccd.appUI.Login;
 import edu.ccd.appUI.NotificationDialog;
 import edu.ccd.config.Configuration;
+import edu.ccd.model.SerializedItem;
 import edu.ccd.model.database.InvalidUserOrNoPermissionException;
 import edu.ccd.model.database.InventoryDatabaseMySQL;
 import edu.ccd.model.database.InventoryItem;
@@ -20,23 +21,34 @@ import java.util.Scanner;
 
 public class MainWindow extends JFrame implements ActionListener {
     private JPanel mainpanel;
+    private JLabel userLabel;
     private JTextField username;
+    private JLabel dropdownLabel;
     private JComboBox kinds;
     private InventoryDatabaseMySQL idb = new InventoryDatabaseMySQL();
 
     //new components
+    private JLabel uidLabel;
     private JTextField uid;
+    private JLabel nameLabel;
     private JTextField name;
+    private JLabel valueLabel;
     private JTextField value;
     private JButton editButton;
+    private JButton deleteButton;
+    private JButton addButton;
+    private JButton changeUser;
+    private JLabel whichLabel;
     private JComboBox<String> which;
+    private JLabel serialLabel;
+    private JTextField serialNumber;
 
     private SecurityContext applicationSecurityContext = new SecurityContext();
 
     public static MainWindow the = null;
 
     public void setApplicationSecurityContext(String name, String token) {
-        applicationSecurityContext.setSecurityContext(name,token);
+        applicationSecurityContext.setSecurityContext(name, token);
         username.setText(name);
     }
 
@@ -59,73 +71,95 @@ public class MainWindow extends JFrame implements ActionListener {
         int _leftside = 10;
         int _rightside = 100;
         int _top = 10;
-        int _labelwidth = 80;
+        int _labelwidth = 110;
         int _height = 25;
 
         setTitle("Inventory System");
-        setSize(500,500);
+        setSize(_rightside*4, 450);
         mainpanel = new JPanel();
-        mainpanel.setSize(500,500);
+        mainpanel.setSize(_rightside*4, 450);
         mainpanel.setLayout(null);
         add(mainpanel);
 
-        JLabel userLabel = new JLabel("User");
+        userLabel = new JLabel("User");
         userLabel.setBounds(_leftside, _top, _labelwidth, _height);
         mainpanel.add(userLabel);
 
         username = new JTextField(20);
         username.setEnabled(false);
-        username.setBounds(_rightside, _top, _labelwidth*2, _height);
+        username.setBounds(_rightside, _top, _labelwidth * 2, _height);
         mainpanel.add(username);
 
-        JLabel dropdownLabel = new JLabel("Kinds");
-        dropdownLabel.setBounds(_leftside,_top+=30,_labelwidth,_height);
+        dropdownLabel = new JLabel("Kinds");
+        dropdownLabel.setBounds(_leftside, _top += 30, _labelwidth, _height);
         mainpanel.add(dropdownLabel);
 
         kinds = new JComboBox<String>();
-        kinds.setBounds(_rightside,_top,_labelwidth*4,_height);
+        kinds.setBounds(_rightside, _top, _labelwidth * 2, _height);
         kinds.addActionListener(this);
         mainpanel.add(kinds);
 
-        JLabel whichLabel = new JLabel("Which");
-        whichLabel.setBounds(_leftside,_top+=30,_labelwidth,_height);
+        whichLabel = new JLabel("Which");
+        whichLabel.setBounds(_leftside, _top += 30, _labelwidth, _height);
         mainpanel.add(whichLabel);
 
         which = new JComboBox<String>();
-        which.setBounds(_rightside,_top,_labelwidth*4,_height);
+        which.setBounds(_rightside, _top, _labelwidth * 2, _height);
         which.addActionListener(this);
         mainpanel.add(which);
 
-        JLabel uidLabel = new JLabel("UID");
-        uidLabel.setBounds(_leftside, _top+=30, _labelwidth, _height);
+        uidLabel = new JLabel("UID");
+        uidLabel.setBounds(_leftside, _top += 30, _labelwidth, _height);
         mainpanel.add(uidLabel);
 
         uid = new JTextField();
         uid.setEnabled(false);
-        uid.setBounds(_rightside, _top, _labelwidth*2, _height);
+        uid.setBounds(_rightside, _top, _labelwidth * 2, _height);
         mainpanel.add(uid);
 
-        JLabel nameLabel = new JLabel("Name");
-        nameLabel.setBounds(_leftside, _top+=30, _labelwidth, _height);
+        nameLabel = new JLabel("Name");
+        nameLabel.setBounds(_leftside, _top += 30, _labelwidth, _height);
         mainpanel.add(nameLabel);
 
         name = new JTextField(20);
-        name.setBounds(_rightside, _top, _labelwidth*2, _height);
+        name.setBounds(_rightside, _top, _labelwidth * 2, _height);
         mainpanel.add(name);
 
-        JLabel valueLabel = new JLabel("Value");
-        valueLabel.setBounds(_leftside, _top+=30, _labelwidth, _height);
+        valueLabel = new JLabel("Value");
+        valueLabel.setBounds(_leftside, _top += 30, _labelwidth, _height);
         mainpanel.add(valueLabel);
 
         value = new JTextField(20);
-        value.setBounds(_rightside, _top, _labelwidth*2, _height);
+        value.setBounds(_rightside, _top, _labelwidth * 2, _height);
         mainpanel.add(value);
 
+        serialLabel = new JLabel("Serial");
+        serialLabel.setBounds(_leftside, _top += 30, _labelwidth, _height);
+        mainpanel.add(serialLabel);
+
+        serialNumber = new JTextField(20);
+        serialNumber.setBounds(_rightside, _top, _labelwidth * 2, _height);
+        mainpanel.add(serialNumber);
+
+        addButton = new JButton("Add");
+        addButton.setBounds(_leftside, _top += 60, _labelwidth, _height);
+        addButton.addActionListener(this);
+        mainpanel.add(addButton);
+
         editButton = new JButton("Edit");
-        //todo: permissions!
-        editButton.setBounds(_rightside, _top+=30, _labelwidth, _height);
+        editButton.setBounds(_leftside+_labelwidth+10, _top, _labelwidth, _height);
         editButton.addActionListener(this);
         mainpanel.add(editButton);
+
+        deleteButton = new JButton("Delete");
+        deleteButton.setBounds(_leftside+(_labelwidth+10)*2, _top, _labelwidth+10, _height);
+        deleteButton.addActionListener(this);
+        mainpanel.add(deleteButton);
+
+        changeUser = new JButton("Change User");
+        changeUser.setBounds(_rightside-(_labelwidth/4), _top += 30, _labelwidth*2, _height);
+        changeUser.addActionListener(this);
+        mainpanel.add(changeUser);
 
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -135,18 +169,24 @@ public class MainWindow extends JFrame implements ActionListener {
     public void loadKinds() {
         try {
             for (String akind : idb.getInventoryKinds())
-                kinds.addItem(akind);
-        }
-        catch (Exception e) {
+                kinds.addItem(akind.substring(akind.lastIndexOf(".") + 1).trim());
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public void applyOperationalPermissions() {
+        uidLabel.setVisible(false);
+        uid.setVisible(false);
+        addButton.setEnabled( idb.getUserRole() != null && idb.getUserRole().canAdd() );
+        editButton.setEnabled( idb.getUserRole() != null && idb.getUserRole().canEdit() );
+        deleteButton.setEnabled( idb.getUserRole() != null && idb.getUserRole().canDelete() );
+    }
+
     public static void main(String[] args) {
         new Login(MainWindow.the().getIdb());
+        MainWindow.the().applyOperationalPermissions();
         MainWindow.the().loadKinds();
-
-        ArrayList<InventoryItem> operationalContext = new ArrayList<>();
 
         /*try {
             new Configuration().writeConfig("This is what should show up in the dialog.");
@@ -155,56 +195,64 @@ public class MainWindow extends JFrame implements ActionListener {
             System.out.println("Could not find a config file.");
         }*/
 
-        try {
-            operationalContext = MainWindow.the().getIdb().getAllInventoryOfKind("edu.ccd.model.inventoryitems.Keyboard");
-        } catch (InvalidUserOrNoPermissionException e) {
-            System.out.println("No user or permissions...");
-        }
-
-        for (InventoryItem each : operationalContext) {
-            System.out.println(each.getName() + " of kind " + each.getClass().getName());
-        }
         System.out.println("End program.");
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if( e.getSource() instanceof JButton ) {
+        if(e.getSource() instanceof JButton && ((JButton) e.getSource()).equals(changeUser)) {
+            //todo: How do we add an item?
+        }
+        if(e.getSource() instanceof JButton && ((JButton) e.getSource()).equals(changeUser)) {
+            new Login(MainWindow.the().getIdb());
+            MainWindow.the().applyOperationalPermissions();
+            MainWindow.the().loadKinds();
+        }
+        if (e.getSource() instanceof JButton && ((JButton) e.getSource()).equals(editButton)) {
             try {
-                MainWindow.the().getIdb().EditInventoryItem(new Integer(uid.getText()).intValue(), new CPU(name.getText(), new Float(value.getText()).floatValue()));
-            }catch (Exception me) {
+                Object returnme = Class.forName("edu.ccd.model.inventoryitems."+kinds.getSelectedItem().toString()).getDeclaredConstructor().newInstance();
+                ((InventoryItem) returnme).setName(name.getText());
+                ((InventoryItem) returnme).setValue(Float.parseFloat(value.getText()));
+                MainWindow.the().getIdb().EditInventoryItem(Integer.parseInt(uid.getText()), ((InventoryItem) returnme));
+            } catch (Exception me) {
                 me.printStackTrace();
             }
         }
-        if( e.getSource() instanceof JComboBox ) {
-            if( ((JComboBox) e.getSource()).equals(kinds) ) {
-                try {
-                    //String fillText = "";
-                    which.removeAllItems();
-                    for (InventoryItem row : MainWindow.the().getIdb().getAllInventoryOfKind(((JComboBox) e.getSource()).getSelectedItem().toString())) {
-                        System.out.println("Item is " + ((JComboBox) e.getSource()).getSelectedItem().toString());
-                        which.addItem(row.getName());
-                        //fillText += row.getName() + "\n";
-                    }
-                    //tempResponse.setText(fillText);
-                } catch (Exception catchall) {
-                    catchall.printStackTrace();
+        if (e.getSource() instanceof JComboBox && ((JComboBox) e.getSource()).equals(kinds)) {
+            try {
+                which.removeAllItems();
+                for (InventoryItem row : MainWindow.the().getIdb().getAllInventoryOfKind("edu.ccd.model.inventoryitems."+((JComboBox) e.getSource()).getSelectedItem().toString())) {
+                    which.addItem(row.getName());
                 }
+            } catch (Exception catchall) {
+                catchall.printStackTrace();
             }
-            else {
-                try {
+        }
+        if (e.getSource() instanceof JComboBox && ((JComboBox) e.getSource()).equals(which)) {
+            try {
+                if (((JComboBox) e.getSource()).getSelectedIndex() >= 0) {
                     for (InventoryItem row : MainWindow.the().getIdb().getInventoryItemByName(((JComboBox) e.getSource()).getSelectedItem().toString())) {
                         uid.setText(String.valueOf(row.getInventoryNumber()));
                         name.setText(row.getName());
                         value.setText(String.valueOf(row.getValue()));
+                        if (row instanceof SerializedItem ) {
+                            serialLabel.setVisible(true);
+                            serialNumber.setVisible(true);
+                            serialNumber.setText(((SerializedItem)row).getSerialnumber());
+                        }
+                        else {
+                            serialLabel.setVisible(false);
+                            serialNumber.setVisible(false);
+                            serialNumber.setText("");
+                        }
                     }
-                }catch (Exception catchAll2) {
-                    catchAll2.printStackTrace();
                 }
+            } catch (Exception catchAll2) {
+                catchAll2.printStackTrace();
             }
-
         }
+
     }
 }
 

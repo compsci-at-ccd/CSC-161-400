@@ -18,7 +18,6 @@ public class Login extends JDialog implements ActionListener{
     public Login(InventoryDatabaseMySQL theDB) {
         myDB = theDB;
         setTitle("Login");
-        //setModal(true);
         setSize(300, 150);
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
