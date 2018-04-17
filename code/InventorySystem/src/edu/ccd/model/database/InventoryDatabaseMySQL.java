@@ -140,6 +140,7 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
 
     @Override
     public boolean AddInventoryItem(InventoryItem inv_item) throws InvalidUserOrNoPermissionException {
+        System.out.println("Called add item with " + inv_item.getName() + " with id " + inv_item.getInventoryNumber() );
         if(userRole == null || !userRole.canAdd() ) throw new InvalidUserOrNoPermissionException(this.getClass().getName());
         if (ViewInventoryItem(inv_item.getInventoryNumber())!=null) {
             return false;
@@ -174,6 +175,7 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
 
     @Override
     public boolean EditInventoryItem(int replaceme, InventoryItem replacewith) throws InvalidUserOrNoPermissionException {
+        System.out.println("Replaceme: " + replaceme + " to be replaced by " + replacewith.getName() + " with id " + replacewith.getInventoryNumber());
         if(userRole == null || !userRole.canEdit() ) throw new InvalidUserOrNoPermissionException(this.getClass().getName());
         return DeleteInventoryItem(replaceme) && AddInventoryItem(replacewith);
     }
@@ -291,4 +293,31 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
         }
         return returnArray;
     }
+
+    public ArrayList<InventoryItem> getInventoryItemByName(String look4name) throws InvalidUserOrNoPermissionException {
+        if(userRole == null || !userRole.canView() ) throw new InvalidUserOrNoPermissionException(this.getClass().getName());
+
+        //todo: it is possible that two names might match, and we need logic to take care of that.
+
+        ArrayList<InventoryItem> returnArray = new ArrayList<InventoryItem>();
+        Object returnme = null;
+        try {
+            ResultSet results = getConnection().createStatement().executeQuery(
+                    "SELECT * FROM Inventory WHERE name = '"+look4name+"';"
+            );
+            while (results.next()) {
+                returnme = Class.forName(results.getString("kind")).getDeclaredConstructor().newInstance();
+                ((InventoryItem)returnme).setInventoryNumber(results.getInt("inventory_number"));
+                ((InventoryItem)returnme).setName(results.getString("name"));
+                ((InventoryItem)returnme).setValue(results.getFloat("value"));
+                if (returnme instanceof SerializedItem)
+                    ((SerializedItem)returnme).setSerialnumber(results.getString("serial_number"));
+                returnArray.add((InventoryItem)returnme);
+            }
+        } catch (Exception any) {
+            any.printStackTrace();
+        }
+        return returnArray;
+    }
+
 }

@@ -6,6 +6,8 @@ import edu.ccd.config.Configuration;
 import edu.ccd.model.database.InvalidUserOrNoPermissionException;
 import edu.ccd.model.database.InventoryDatabaseMySQL;
 import edu.ccd.model.database.InventoryItem;
+import edu.ccd.model.inventoryitems.CPU;
+import edu.ccd.model.inventoryitems.Mouse;
 import edu.ccd.model.security.SecurityContext;
 
 import javax.swing.*;
@@ -20,8 +22,14 @@ public class MainWindow extends JFrame implements ActionListener {
     private JPanel mainpanel;
     private JTextField username;
     private JComboBox kinds;
-    private JTextArea tempResponse;
     private InventoryDatabaseMySQL idb = new InventoryDatabaseMySQL();
+
+    //new components
+    private JTextField uid;
+    private JTextField name;
+    private JTextField value;
+    private JButton editButton;
+    private JComboBox<String> which;
 
     private SecurityContext applicationSecurityContext = new SecurityContext();
 
@@ -48,6 +56,12 @@ public class MainWindow extends JFrame implements ActionListener {
     }
 
     private void initComponents() {
+        int _leftside = 10;
+        int _rightside = 100;
+        int _top = 10;
+        int _labelwidth = 80;
+        int _height = 25;
+
         setTitle("Inventory System");
         setSize(500,500);
         mainpanel = new JPanel();
@@ -56,26 +70,62 @@ public class MainWindow extends JFrame implements ActionListener {
         add(mainpanel);
 
         JLabel userLabel = new JLabel("User");
-        userLabel.setBounds(10, 10, 80, 25);
+        userLabel.setBounds(_leftside, _top, _labelwidth, _height);
         mainpanel.add(userLabel);
 
         username = new JTextField(20);
         username.setEnabled(false);
-        username.setBounds(100, 10, 160, 25);
+        username.setBounds(_rightside, _top, _labelwidth*2, _height);
         mainpanel.add(username);
 
         JLabel dropdownLabel = new JLabel("Kinds");
-        dropdownLabel.setBounds(10,40,80,25);
+        dropdownLabel.setBounds(_leftside,_top+=30,_labelwidth,_height);
         mainpanel.add(dropdownLabel);
 
         kinds = new JComboBox<String>();
-        kinds.setBounds(100,40,320,25);
+        kinds.setBounds(_rightside,_top,_labelwidth*4,_height);
         kinds.addActionListener(this);
         mainpanel.add(kinds);
 
-        tempResponse = new JTextArea();
-        tempResponse.setBounds(10,80,470,380);
-        mainpanel.add(tempResponse);
+        JLabel whichLabel = new JLabel("Which");
+        whichLabel.setBounds(_leftside,_top+=30,_labelwidth,_height);
+        mainpanel.add(whichLabel);
+
+        which = new JComboBox<String>();
+        which.setBounds(_rightside,_top,_labelwidth*4,_height);
+        which.addActionListener(this);
+        mainpanel.add(which);
+
+        JLabel uidLabel = new JLabel("UID");
+        uidLabel.setBounds(_leftside, _top+=30, _labelwidth, _height);
+        mainpanel.add(uidLabel);
+
+        uid = new JTextField();
+        uid.setEnabled(false);
+        uid.setBounds(_rightside, _top, _labelwidth*2, _height);
+        mainpanel.add(uid);
+
+        JLabel nameLabel = new JLabel("Name");
+        nameLabel.setBounds(_leftside, _top+=30, _labelwidth, _height);
+        mainpanel.add(nameLabel);
+
+        name = new JTextField(20);
+        name.setBounds(_rightside, _top, _labelwidth*2, _height);
+        mainpanel.add(name);
+
+        JLabel valueLabel = new JLabel("Value");
+        valueLabel.setBounds(_leftside, _top+=30, _labelwidth, _height);
+        mainpanel.add(valueLabel);
+
+        value = new JTextField(20);
+        value.setBounds(_rightside, _top, _labelwidth*2, _height);
+        mainpanel.add(value);
+
+        editButton = new JButton("Edit");
+        //todo: permissions!
+        editButton.setBounds(_rightside, _top+=30, _labelwidth, _height);
+        editButton.addActionListener(this);
+        mainpanel.add(editButton);
 
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,7 +143,6 @@ public class MainWindow extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new MainWindow();
         new Login(MainWindow.the().getIdb());
         MainWindow.the().loadKinds();
 
@@ -121,16 +170,40 @@ public class MainWindow extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if( e.getSource() instanceof JComboBox ) {
+        if( e.getSource() instanceof JButton ) {
             try {
-                String fillText = "";
-                for (InventoryItem row : MainWindow.the().getIdb().getAllInventoryOfKind(((JComboBox) e.getSource()).getSelectedItem().toString())) {
-                    fillText += row.getName() + "\n";
-                }
-                tempResponse.setText(fillText);
-            } catch (Exception catchall) {
-                catchall.printStackTrace();
+                MainWindow.the().getIdb().EditInventoryItem(new Integer(uid.getText()).intValue(), new CPU(name.getText(), new Float(value.getText()).floatValue()));
+            }catch (Exception me) {
+                me.printStackTrace();
             }
+        }
+        if( e.getSource() instanceof JComboBox ) {
+            if( ((JComboBox) e.getSource()).equals(kinds) ) {
+                try {
+                    //String fillText = "";
+                    which.removeAllItems();
+                    for (InventoryItem row : MainWindow.the().getIdb().getAllInventoryOfKind(((JComboBox) e.getSource()).getSelectedItem().toString())) {
+                        System.out.println("Item is " + ((JComboBox) e.getSource()).getSelectedItem().toString());
+                        which.addItem(row.getName());
+                        //fillText += row.getName() + "\n";
+                    }
+                    //tempResponse.setText(fillText);
+                } catch (Exception catchall) {
+                    catchall.printStackTrace();
+                }
+            }
+            else {
+                try {
+                    for (InventoryItem row : MainWindow.the().getIdb().getInventoryItemByName(((JComboBox) e.getSource()).getSelectedItem().toString())) {
+                        uid.setText(String.valueOf(row.getInventoryNumber()));
+                        name.setText(row.getName());
+                        value.setText(String.valueOf(row.getValue()));
+                    }
+                }catch (Exception catchAll2) {
+                    catchAll2.printStackTrace();
+                }
+            }
+
         }
     }
 }
