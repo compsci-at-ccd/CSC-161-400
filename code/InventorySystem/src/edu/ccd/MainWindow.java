@@ -1,25 +1,23 @@
 package edu.ccd;
 
 import edu.ccd.appUI.Login;
-import edu.ccd.appUI.NotificationDialog;
-import edu.ccd.config.Configuration;
 import edu.ccd.model.SerializedItem;
-import edu.ccd.model.database.InvalidUserOrNoPermissionException;
 import edu.ccd.model.database.InventoryDatabaseMySQL;
 import edu.ccd.model.database.InventoryItem;
-import edu.ccd.model.inventoryitems.CPU;
-import edu.ccd.model.inventoryitems.Mouse;
 import edu.ccd.model.security.SecurityContext;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class MainWindow extends JFrame implements ActionListener {
+
+    class kindsList {
+        String kind;
+        String description;
+    }
+
     private JPanel mainpanel;
     private JLabel userLabel;
     private JTextField username;
@@ -42,6 +40,9 @@ public class MainWindow extends JFrame implements ActionListener {
     private JComboBox<String> which;
     private JLabel serialLabel;
     private JTextField serialNumber;
+
+    private ArrayList<InventoryItem> whichContext = new ArrayList<InventoryItem>();
+    private ArrayList<kindsList> kindListOptions = new ArrayList<kindsList>();
 
     private SecurityContext applicationSecurityContext = new SecurityContext();
 
@@ -75,9 +76,9 @@ public class MainWindow extends JFrame implements ActionListener {
         int _height = 25;
 
         setTitle("Inventory System");
-        setSize(_rightside*4, 450);
+        setSize(_rightside * 4, 450);
         mainpanel = new JPanel();
-        mainpanel.setSize(_rightside*4, 450);
+        mainpanel.setSize(_rightside * 4, 450);
         mainpanel.setLayout(null);
         add(mainpanel);
 
@@ -147,17 +148,17 @@ public class MainWindow extends JFrame implements ActionListener {
         mainpanel.add(addButton);
 
         editButton = new JButton("Edit");
-        editButton.setBounds(_leftside+_labelwidth+10, _top, _labelwidth, _height);
+        editButton.setBounds(_leftside + _labelwidth + 10, _top, _labelwidth, _height);
         editButton.addActionListener(this);
         mainpanel.add(editButton);
 
         deleteButton = new JButton("Delete");
-        deleteButton.setBounds(_leftside+(_labelwidth+10)*2, _top, _labelwidth+10, _height);
+        deleteButton.setBounds(_leftside + (_labelwidth + 10) * 2, _top, _labelwidth + 10, _height);
         deleteButton.addActionListener(this);
         mainpanel.add(deleteButton);
 
         changeUser = new JButton("Change User");
-        changeUser.setBounds(_rightside-(_labelwidth/4), _top += 30, _labelwidth*2, _height);
+        changeUser.setBounds(_rightside - (_labelwidth / 4), _top += 30, _labelwidth * 2, _height);
         changeUser.addActionListener(this);
         mainpanel.add(changeUser);
 
@@ -168,8 +169,14 @@ public class MainWindow extends JFrame implements ActionListener {
 
     public void loadKinds() {
         try {
-            for (String akind : idb.getInventoryKinds())
-                kinds.addItem(akind.substring(akind.lastIndexOf(".") + 1).trim());
+            for (String akind : idb.getInventoryKinds()) {
+                kindsList item = new kindsList();
+                item.description = akind.substring(akind.lastIndexOf(".") + 1).trim();
+                item.kind = akind;
+                kindListOptions.add(item);
+
+                kinds.addItem(item.description);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -178,9 +185,9 @@ public class MainWindow extends JFrame implements ActionListener {
     public void applyOperationalPermissions() {
         uidLabel.setVisible(false);
         uid.setVisible(false);
-        addButton.setEnabled( idb.getUserRole() != null && idb.getUserRole().canAdd() );
-        editButton.setEnabled( idb.getUserRole() != null && idb.getUserRole().canEdit() );
-        deleteButton.setEnabled( idb.getUserRole() != null && idb.getUserRole().canDelete() );
+        addButton.setEnabled(idb.getUserRole() != null && idb.getUserRole().canAdd());
+        editButton.setEnabled(idb.getUserRole() != null && idb.getUserRole().canEdit());
+        deleteButton.setEnabled(idb.getUserRole() != null && idb.getUserRole().canDelete());
     }
 
     public static void main(String[] args) {
@@ -201,17 +208,25 @@ public class MainWindow extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() instanceof JButton && ((JButton) e.getSource()).equals(changeUser)) {
+        if (e.getSource() instanceof JButton && e.getSource().equals(addButton)) {
             //todo: How do we add an item?
+            InventoryItem item = whichContext.get(which.getSelectedIndex());
+            System.out.print("UID:" + item.getInventoryNumber() + " Name:" + item.getName() + " Value:" + item.getValue());
+            if (item instanceof SerializedItem) {
+                System.out.println("Serial number:" + ((SerializedItem) item).getSerialnumber());
+            } else {
+                System.out.println();
+            }
         }
-        if(e.getSource() instanceof JButton && ((JButton) e.getSource()).equals(changeUser)) {
+        if (e.getSource() instanceof JButton && e.getSource().equals(changeUser)) {
             new Login(MainWindow.the().getIdb());
             MainWindow.the().applyOperationalPermissions();
             MainWindow.the().loadKinds();
         }
-        if (e.getSource() instanceof JButton && ((JButton) e.getSource()).equals(editButton)) {
+        if (e.getSource() instanceof JButton && e.getSource().equals(editButton)) {
+            //todo: This is not sensitive to SerializedItems like the which handler below.
             try {
-                Object returnme = Class.forName("edu.ccd.model.inventoryitems."+kinds.getSelectedItem().toString()).getDeclaredConstructor().newInstance();
+                Object returnme = Class.forName(kindListOptions.get(kinds.getSelectedIndex()).kind).getDeclaredConstructor().newInstance();
                 ((InventoryItem) returnme).setName(name.getText());
                 ((InventoryItem) returnme).setValue(Float.parseFloat(value.getText()));
                 MainWindow.the().getIdb().EditInventoryItem(Integer.parseInt(uid.getText()), ((InventoryItem) returnme));
@@ -219,33 +234,34 @@ public class MainWindow extends JFrame implements ActionListener {
                 me.printStackTrace();
             }
         }
-        if (e.getSource() instanceof JComboBox && ((JComboBox) e.getSource()).equals(kinds)) {
+        if (e.getSource() instanceof JComboBox && e.getSource().equals(kinds)) {
             try {
+                //Clear any items from the last selection of "kind"
                 which.removeAllItems();
-                for (InventoryItem row : MainWindow.the().getIdb().getAllInventoryOfKind("edu.ccd.model.inventoryitems."+((JComboBox) e.getSource()).getSelectedItem().toString())) {
+                whichContext.removeAll(whichContext);
+                for (InventoryItem row : MainWindow.the().getIdb().getAllInventoryOfKind(kindListOptions.get(kinds.getSelectedIndex()).kind)) {
+                    whichContext.add(row);
                     which.addItem(row.getName());
                 }
             } catch (Exception catchall) {
                 catchall.printStackTrace();
             }
         }
-        if (e.getSource() instanceof JComboBox && ((JComboBox) e.getSource()).equals(which)) {
+        if (e.getSource() instanceof JComboBox && e.getSource().equals(which)) {
             try {
                 if (((JComboBox) e.getSource()).getSelectedIndex() >= 0) {
-                    for (InventoryItem row : MainWindow.the().getIdb().getInventoryItemByName(((JComboBox) e.getSource()).getSelectedItem().toString())) {
-                        uid.setText(String.valueOf(row.getInventoryNumber()));
-                        name.setText(row.getName());
-                        value.setText(String.valueOf(row.getValue()));
-                        if (row instanceof SerializedItem ) {
-                            serialLabel.setVisible(true);
-                            serialNumber.setVisible(true);
-                            serialNumber.setText(((SerializedItem)row).getSerialnumber());
-                        }
-                        else {
-                            serialLabel.setVisible(false);
-                            serialNumber.setVisible(false);
-                            serialNumber.setText("");
-                        }
+                    InventoryItem row = whichContext.get(which.getSelectedIndex());
+                    uid.setText(String.valueOf(row.getInventoryNumber()));
+                    name.setText(row.getName());
+                    value.setText(String.valueOf(row.getValue()));
+                    if (row instanceof SerializedItem) {
+                        serialLabel.setVisible(true);
+                        serialNumber.setVisible(true);
+                        serialNumber.setText(((SerializedItem) row).getSerialnumber());
+                    } else {
+                        serialLabel.setVisible(false);
+                        serialNumber.setVisible(false);
+                        serialNumber.setText("");
                     }
                 }
             } catch (Exception catchAll2) {

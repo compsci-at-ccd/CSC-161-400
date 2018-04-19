@@ -93,3 +93,8 @@ public class Role {
         return this.uid == uid;
     }
 }
+/*
+INSERT INTO Inventory.Roles (uid, rolename, targetname, `permissions-view`, `permissions-add`, `permissions-delete`, `permissions-edit`, `permissions-reload`) VALUES (1, 'admin', 'InventoryTable', 1, 1, 1, 1, 1);
+INSERT INTO Inventory.Roles (uid, rolename, targetname, `permissions-view`, `permissions-add`, `permissions-delete`, `permissions-edit`, `permissions-reload`) VALUES (2, 'super', 'InventoryTable', 1, 1, 0, 1, 1);
+INSERT INTO Inventory.Roles (uid, rolename, targetname, `permissions-view`, `permissions-add`, `permissions-delete`, `permissions-edit`, `permissions-reload`) VALUES (3, 'TheDude', 'InventoryTable', 1, 0, 0, 0, 0);
+ */

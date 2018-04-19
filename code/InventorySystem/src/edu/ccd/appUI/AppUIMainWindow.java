@@ -7,5 +7,5 @@ import java.util.ArrayList;
 
 public interface AppUIMainWindow {
     public ArrayList<String> getInventoryKinds() throws InvalidUserOrNoPermissionException;
-    public ArrayList<InventoryItem> getInventoryItemByName(String look4name) throws InvalidUserOrNoPermissionException;
+    //public ArrayList<InventoryItem> getInventoryItemByName(String look4name) throws InvalidUserOrNoPermissionException;
 }

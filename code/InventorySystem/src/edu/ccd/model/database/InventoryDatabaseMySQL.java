@@ -297,6 +297,7 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
         return returnArray;
     }
 
+    /*
     public ArrayList<InventoryItem> getInventoryItemByName(String look4name) throws InvalidUserOrNoPermissionException {
         if(userRole == null || !userRole.canView() ) throw new InvalidUserOrNoPermissionException(this.getClass().getName());
 
@@ -322,6 +323,7 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
         }
         return returnArray;
     }
+    */
 
     public void primeInventory() {
         int maxInventoryNumber=1;
