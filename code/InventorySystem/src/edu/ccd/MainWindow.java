@@ -9,7 +9,9 @@ import edu.ccd.model.security.SecurityContext;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentListener;
 import java.util.ArrayList;
+import java.util.EventListener;
 
 public class MainWindow extends JFrame implements ActionListener {
 
@@ -208,6 +210,9 @@ public class MainWindow extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        System.out.println(e.getSource() + e.getActionCommand());
+
         if (e.getSource() instanceof JButton && e.getSource().equals(addButton)) {
             //todo: How do we add an item?
             InventoryItem item = whichContext.get(which.getSelectedIndex());

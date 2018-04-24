@@ -93,8 +93,25 @@ public class Role {
         return this.uid == uid;
     }
 }
+/*-- auto-generated definition
+CREATE TABLE Roles
+(
+  uid                  BIGINT                 NOT NULL
+    PRIMARY KEY,
+  rolename             VARCHAR(30)            NULL CHARSET utf8,
+  targetname           VARCHAR(30)            NULL CHARSET utf8,
+  `permissions-view`   TINYINT(1)             NULL,
+  `permissions-add`    TINYINT(1) DEFAULT '0' NULL,
+  `permissions-delete` TINYINT(1) DEFAULT '0' NULL,
+  `permissions-edit`   TINYINT(1) DEFAULT '0' NULL,
+  `permissions-reload` TINYINT(1) DEFAULT '0' NULL,
+  CONSTRAINT Roles_uid_uindex
+  UNIQUE (uid)
+)
+  COMMENT 'This is modeled after the role class'
+  ENGINE = InnoDB;
+*/
+
 /*
-INSERT INTO Inventory.Roles (uid, rolename, targetname, `permissions-view`, `permissions-add`, `permissions-delete`, `permissions-edit`, `permissions-reload`) VALUES (1, 'admin', 'InventoryTable', 1, 1, 1, 1, 1);
-INSERT INTO Inventory.Roles (uid, rolename, targetname, `permissions-view`, `permissions-add`, `permissions-delete`, `permissions-edit`, `permissions-reload`) VALUES (2, 'super', 'InventoryTable', 1, 1, 0, 1, 1);
-INSERT INTO Inventory.Roles (uid, rolename, targetname, `permissions-view`, `permissions-add`, `permissions-delete`, `permissions-edit`, `permissions-reload`) VALUES (3, 'TheDude', 'InventoryTable', 1, 0, 0, 0, 0);
- */
+INSERT INTO Inventory.Roles (uid, rolename, targetname, `permissions-view`, `permissions-add`, `permissions-delete`, `permissions-edit`, `permissions-reload`) VALUES (1, 'admin', 'InventoryTable', 1, 1, 1, 1, 1), (2, 'super', 'InventoryTable', 1, 1, 0, 1, 1), (3, 'TheDude', 'InventoryTable', 1, 0, 0, 0, 0);
+*/
