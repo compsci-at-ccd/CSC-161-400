@@ -1,6 +1,8 @@
 package edu.ccd;
 
 import edu.ccd.appUI.Login;
+import edu.ccd.appUI.Subject;
+import edu.ccd.appUI.ConcreteObserver;
 import edu.ccd.model.SerializedItem;
 import edu.ccd.model.database.InventoryDatabaseMySQL;
 import edu.ccd.model.database.InventoryItem;
@@ -197,6 +199,20 @@ public class MainWindow extends JFrame implements ActionListener {
         MainWindow.the().applyOperationalPermissions();
         MainWindow.the().loadKinds();
 
+        Subject enableCheckmark = new Subject();
+
+        ConcreteObserver uiElement1 = new ConcreteObserver();
+        enableCheckmark.register(uiElement1);
+        ConcreteObserver uiElement2 = new ConcreteObserver();
+        enableCheckmark.register(uiElement2);
+        ConcreteObserver uiElement3 = new ConcreteObserver();
+        enableCheckmark.register(uiElement3);
+
+
+        enableCheckmark.update();
+
+
+
         /*try {
             new Configuration().writeConfig("This is what should show up in the dialog.");
             NotificationDialog.the().displayNotification(new Configuration().readConfig());
@@ -210,9 +226,6 @@ public class MainWindow extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        System.out.println(e.getSource() + e.getActionCommand());
-
         if (e.getSource() instanceof JButton && e.getSource().equals(addButton)) {
             //todo: How do we add an item?
             InventoryItem item = whichContext.get(which.getSelectedIndex());

@@ -909,110 +909,148 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="229" parent="2" name="Inventory">
+    <table id="229" parent="2" name="Audit">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="230" parent="2" name="Roles">
+    <table id="230" parent="2" name="Inventory">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="231" parent="2" name="Roles">
       <Comment>This is modeled after the role class</Comment>
       <Engine>InnoDB</Engine>
     </table>
-    <column id="231" parent="229" name="inventory_number">
+    <column id="232" parent="229" name="uid">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="233" parent="229" name="mod_date">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="234" parent="229" name="userid">
+      <Position>3</Position>
+      <DataType>varchar(35)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="235" parent="229" name="operation">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="236" parent="229" name="Audit_uid_uindex">
+      <ColNames>uid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="237" parent="229" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>uid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="238" parent="229" name="Audit_uid_uindex">
+      <ColNames>uid</ColNames>
+      <UnderlyingIndexName>Audit_uid_uindex</UnderlyingIndexName>
+    </key>
+    <column id="239" parent="230" name="inventory_number">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="232" parent="229" name="kind">
+    <column id="240" parent="230" name="kind">
       <Position>2</Position>
       <DataType>varchar(40)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="229" name="name">
+    <column id="241" parent="230" name="name">
       <Position>3</Position>
       <DataType>varchar(25)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="229" name="value">
+    <column id="242" parent="230" name="value">
       <Position>4</Position>
       <DataType>float|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="229" name="serial_number">
+    <column id="243" parent="230" name="serial_number">
       <Position>5</Position>
       <DataType>varchar(25)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="236" parent="229" name="Inventory_inventory_number_uindex">
+    <index id="244" parent="230" name="Inventory_inventory_number_uindex">
       <ColNames>inventory_number</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="237" parent="229" name="PRIMARY">
+    <key id="245" parent="230" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>inventory_number</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="238" parent="229" name="Inventory_inventory_number_uindex">
+    <key id="246" parent="230" name="Inventory_inventory_number_uindex">
       <ColNames>inventory_number</ColNames>
       <UnderlyingIndexName>Inventory_inventory_number_uindex</UnderlyingIndexName>
     </key>
-    <column id="239" parent="230" name="uid">
+    <column id="247" parent="231" name="uid">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="230" name="rolename">
+    <column id="248" parent="231" name="rolename">
       <Position>2</Position>
       <DataType>varchar(30)|0</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="241" parent="230" name="targetname">
+    <column id="249" parent="231" name="targetname">
       <Position>3</Position>
       <DataType>varchar(30)|0</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="242" parent="230" name="permissions-view">
+    <column id="250" parent="231" name="permissions-view">
       <Position>4</Position>
       <DataType>tinyint(1)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="230" name="permissions-add">
+    <column id="251" parent="231" name="permissions-add">
       <Position>5</Position>
       <DataType>tinyint(1)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="230" name="permissions-delete">
+    <column id="252" parent="231" name="permissions-delete">
       <Position>6</Position>
       <DataType>tinyint(1)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="230" name="permissions-edit">
+    <column id="253" parent="231" name="permissions-edit">
       <Position>7</Position>
       <DataType>tinyint(1)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="230" name="permissions-reload">
+    <column id="254" parent="231" name="permissions-reload">
       <Position>8</Position>
       <DataType>tinyint(1)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="247" parent="230" name="Roles_uid_uindex">
+    <index id="255" parent="231" name="Roles_uid_uindex">
       <ColNames>uid</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="248" parent="230" name="PRIMARY">
+    <key id="256" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="249" parent="230" name="Roles_uid_uindex">
+    <key id="257" parent="231" name="Roles_uid_uindex">
       <ColNames>uid</ColNames>
       <UnderlyingIndexName>Roles_uid_uindex</UnderlyingIndexName>
     </key>

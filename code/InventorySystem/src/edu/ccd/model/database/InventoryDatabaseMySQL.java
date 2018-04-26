@@ -116,6 +116,8 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
         } catch (Exception any) {
             any.printStackTrace();
         }
+        //todo: what if Audit gets called with a null user or op?
+        Audit(userRole, "Login()");
         return (userRole != null);
 
     }
@@ -324,6 +326,19 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
         return returnArray;
     }
     */
+
+    public boolean Audit(Role auditRole, String operation) {
+        try {
+            getConnection().createStatement().executeUpdate(
+                    "INSERT INTO Audit ( mod_date, userid, operation)" +
+                            " VALUES (NOW(), '" + auditRole.getRolename() + "' , '" + operation +  "');"
+            );
+        } catch (SQLException any) {
+            any.printStackTrace();
+        }
+
+        return true;
+    }
 
     public void primeInventory() {
         int maxInventoryNumber=1;
