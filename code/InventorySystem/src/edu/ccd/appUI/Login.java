@@ -7,6 +7,7 @@ import edu.ccd.model.security.SecurityContext;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.MessageDigest;
 
 public class Login extends JDialog implements ActionListener{
     private JTextField userNameField;
@@ -62,12 +63,15 @@ public class Login extends JDialog implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if( e.getSource() instanceof JButton ) {
             if( ((JButton) e.getSource()).getText() == "Login") {
-                if( myDB.Login( getUserNameField() ) ) {
-                    MainWindow.the().setApplicationSecurityContext(getUserNameField(), getPasswordField());
-                    this.dispose();
-                }
-                else {
-                    setUserNameField("INVALID USER");
+                try {
+                    if( myDB.Login( getUserNameField(), MainWindow.the().byteArrayToHex(MessageDigest.getInstance("SHA-1").digest( getPasswordField().getBytes() ))  )) {
+                        MainWindow.the().setApplicationSecurityContext(getUserNameField(), MainWindow.the().byteArrayToHex(MessageDigest.getInstance("SHA-1").digest(getPasswordField().getBytes())));
+                        this.dispose();
+                    } else {
+                        setUserNameField("INVALID USER");
+                    }
+                }catch (Exception dElete) {
+                    dElete.printStackTrace();
                 }
             }else {
                 System.out.println("Cancel");
@@ -81,7 +85,7 @@ public class Login extends JDialog implements ActionListener{
     }
 
     public String getPasswordField() {
-        return passwordField.getPassword().toString().trim();
+        return (new String(passwordField.getPassword())).trim();
     }
 
     public void setUserNameField(String text) {

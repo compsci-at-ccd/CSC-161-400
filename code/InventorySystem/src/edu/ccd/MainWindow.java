@@ -12,8 +12,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentListener;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.EventListener;
+import java.util.UnknownFormatConversionException;
 
 public class MainWindow extends JFrame implements ActionListener {
 
@@ -211,7 +215,19 @@ public class MainWindow extends JFrame implements ActionListener {
 
         enableCheckmark.update();
 
-
+        /*try {
+            String password1 = "mypassword1";
+            String notthepass = "notthepassword";
+            System.out.println( byteArrayToHex(MessageDigest.getInstance("SHA-1").digest("password123".getBytes())) );
+            System.out.println("cbfdac6008f9cab4083784cbd1874f76618d2a97");
+            System.out.println(hash("password123"));
+            System.out.println("Do password1 and notthepass match?: " + (hash(password1).compareTo(hash(notthepass))==0));
+            System.out.println("Do password1 and password1 match?:  " + (hash(password1).compareTo(hash(password1))==0));
+        } catch (NoSuchAlgorithmException nsae ) {
+            nsae.printStackTrace();
+        } catch (UnsupportedEncodingException uee) {
+            uee.printStackTrace();
+        }*/
 
         /*try {
             new Configuration().writeConfig("This is what should show up in the dialog.");
@@ -222,6 +238,17 @@ public class MainWindow extends JFrame implements ActionListener {
 
         System.out.println("End program.");
 
+    }
+
+    public static String hash (String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        return new String (MessageDigest.getInstance("SHA-1").digest(password.getBytes()),"UTF-8");
+    }
+
+    public static String byteArrayToHex(byte[] bytearray) {
+        StringBuilder sb = new StringBuilder( bytearray.length * 2);
+        for(byte b: bytearray)
+            sb.append(String.format("%02x", b));
+        return sb.toString();
     }
 
     @Override

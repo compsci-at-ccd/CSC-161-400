@@ -95,6 +95,34 @@ public class InventoryDatabaseMySQL implements InventoryDatabaseInterface, AppUI
         return returnme;
     }
 
+    public boolean Login(String username, String password) {
+        userRole = null;
+        try {
+            ResultSet results = getConnection().createStatement().executeQuery(
+                    "SELECT * FROM Roles WHERE rolename='" + username + "' and password='"+password+"';"
+            );
+            while (results.next()) {
+                userRole = Role.cloneRole(
+                        /*results.getInt(1),*/      results.getInt("uid"),
+                        /*results.getString(2),*/   results.getString("rolename"),
+                        /*results.getString(3),*/   results.getString("targetname"),
+                        /*results.getBoolean(4),*/  results.getBoolean("permissions-view"),
+                        /*results.getBoolean(5),*/  results.getBoolean("permissions-add"),
+                        /*results.getBoolean(6),*/  results.getBoolean("permissions-delete"),
+                        /*results.getBoolean(7),*/  results.getBoolean("permissions-edit"),
+                        /*results.getBoolean(8)*/   results.getBoolean("permissions-reload")
+                );
+            }
+        } catch (Exception any) {
+            any.printStackTrace();
+        }
+        //todo: what if Audit gets called with a null user or op?
+        if(userRole!=null)
+            Audit(userRole, "Login()");
+        return (userRole != null);
+
+    }
+
     public boolean Login(String username) {
         userRole = null;
         try {
